@@ -1,9 +1,10 @@
+import Header from "./Common/Header";
 
 function App() {
   return (
-    <div>
-      test
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
