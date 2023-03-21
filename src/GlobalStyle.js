@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         font-size: 18px;
         font-weight: 400;
-        background: #F5F5FA;
+        background: ${({ theme }) => theme.colors.whisper};
+        color: ${({ theme }) => theme.colors.black};
     }
 `;
