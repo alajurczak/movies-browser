@@ -118,7 +118,6 @@ export const SearchBarIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  margin-right: -0, 7px;
 
   @media (max-width: ${mobileBp}px) {
     height: 44px;
