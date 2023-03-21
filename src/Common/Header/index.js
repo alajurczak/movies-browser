@@ -19,6 +19,8 @@ const Header = () => {
       <GridWrapper>
         <Wrapper>
           <TitleLink>
+            {/*  waiting for HashRouter
+                implementation */}
             <StyledVideoIcon />
             <TittleText>Movies Browser</TittleText>
           </TitleLink>
@@ -26,9 +28,13 @@ const Header = () => {
             <NavigationList>
               <li>
                 <StyledNavLink>MOVIES</StyledNavLink>
+                {/*  waiting for HashRouter
+                implementation */}
               </li>
               <li>
                 <StyledNavLink>PEOPLE</StyledNavLink>
+                {/*  waiting for HashRouter
+                implementation */}
               </li>
             </NavigationList>
           </nav>
@@ -37,7 +43,8 @@ const Header = () => {
           <SearchBarIcon>
             <StyledSearchIcon />
           </SearchBarIcon>
-          <SearchBarInput placeholder="Search for movies..."/>
+          <SearchBarInput placeholder="Search for movies..." />{" "}
+          {/* temporary placeholder */}
         </SearchBar>
       </GridWrapper>
     </StyledHeader>
