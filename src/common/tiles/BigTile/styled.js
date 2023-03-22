@@ -99,3 +99,7 @@ export const Votes = styled.p`
     font-size: 14px;
 `;
 
+export const TileArticle = styled.article`
+    font-size: 20px;
+    line-height: 160%;
+`;

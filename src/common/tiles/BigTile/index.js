@@ -13,7 +13,8 @@ import {
     RatesWrapper,
     ActualRating,
     MaxRating,
-    Votes
+    Votes,
+    TileArticle
 } from "./styled";
 import poster from "../../../images/poster.png";
 import { ReactComponent as StarIcon } from "./StarIcon.svg";
@@ -47,7 +48,12 @@ export const BigTile = () => {
                     </RatesWrapper>
                     <Votes>335 votes</Votes>
                 </VotesWrapper >
-
+                <TileArticle>
+                    A young Chinese maiden disguises herself as a male warrior in order to
+                    save her father. Disguises herself as a male warrior in order to save her
+                    father. A young Chinese maiden disguises herself as a male warrior in
+                    order to save her father.
+                </TileArticle>
             </Content>
         </Container>
     );
