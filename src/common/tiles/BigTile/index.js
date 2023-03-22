@@ -8,9 +8,15 @@ import {
     SubTitle,
     Information,
     GenreWrapper,
-    GenreTile
+    GenreTile,
+    VotesWrapper,
+    RatesWrapper,
+    ActualRating,
+    MaxRating,
+    Votes
 } from "./styled";
 import poster from "../../../images/poster.png";
+import { ReactComponent as StarIcon } from "./StarIcon.svg";
 
 
 export const BigTile = () => {
@@ -33,6 +39,15 @@ export const BigTile = () => {
                     <GenreTile>Adventure</GenreTile>
                     <GenreTile>Drama</GenreTile>
                 </GenreWrapper>
+                <VotesWrapper>
+                    <RatesWrapper>
+                        <StarIcon />
+                        <ActualRating>7,8</ActualRating>
+                        <MaxRating>/10</MaxRating>
+                    </RatesWrapper>
+                    <Votes>335 votes</Votes>
+                </VotesWrapper >
+
             </Content>
         </Container>
     );

@@ -39,13 +39,13 @@ export const Year = styled.div`
 
 export const Wrapper = styled.div`
     display: flex;
-    
-    
+    align-items: center;
+
 `;
 
 export const SubTitle = styled.p`
     padding-right: 10px;
-    color: ${({theme}) => theme.colors.stormGray};
+    color: ${({ theme }) => theme.colors.stormGray};
     margin-top: 0px;
     margin-bottom: 8px;
 
@@ -63,9 +63,39 @@ export const GenreWrapper = styled.div`
 export const GenreTile = styled.div`
     padding: 8px 16px;
     margin-right: 16px;
-    background-color: ${({theme}) => theme.colors.mystic};
+    background-color: ${({ theme }) => theme.colors.mystic};
     border-radius: 5px;
     font-size: 14px;
     line-height: 100%;
+`;
+export const VotesWrapper = styled.div`
+    display: flex;
+    align-items:center;
+`;
+
+export const RatesWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+    line-height: 100%;
+`;
+
+export const ActualRating = styled.p`
+    margin: 0 8px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 130%;
+
+`;
+export const MaxRating = styled.p`
+    margin: 0 12px 0 0;
+    line-height: 120%;
+    font-size: 14px;
+`;
+
+export const Votes = styled.p`
+    margin: 0;
+    line-height: 120%;
+    font-size: 14px;
 `;
 
