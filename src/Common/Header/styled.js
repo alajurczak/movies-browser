@@ -92,6 +92,14 @@ export const StyledNavLink = styled.a`
   padding: 13.5px 24px;
   text-decoration: none;
 
+  &:active {
+    border: 1px solid ${({ theme }) => theme.colors.white};
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
   @media (max-width: ${mobileBp}px) {
     font-size: 12px;
     padding: 8px 12px;
@@ -132,6 +140,14 @@ export const SearchBarInput = styled.input`
   border: 1px solid ${({ theme }) => theme.colors.mystic};
   border-left: none;
   border-radius: 0 33px 33px 0;
+
+  &::placeholder {
+    font-size: 16px;
+  }
+
+  &:focus {
+    outline: none;
+  }
 
   @media (max-width: ${mobileBp}px) {
     height: 44px;
