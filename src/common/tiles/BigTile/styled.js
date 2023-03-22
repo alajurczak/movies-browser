@@ -10,6 +10,11 @@ export const Container = styled.div`
     gap: 0 40px;
     grid-template-columns: minmax(auto, 312px) 1fr;
     grid-template-rows: auto 1fr;
+
+    @media (max-width: ${({theme}) => theme.breakpoints.mobileMax}) {
+        grid-template-columns: minmax(auto, 114px) 1fr;
+        gap: 0 16px;
+    };
 `;
 
 export const Poster = styled.img`
@@ -20,7 +25,9 @@ export const Poster = styled.img`
 `;
 
 export const Content = styled.div`
-    
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+      grid-row: span 2;
+    }
 `;
 
 export const Title = styled.header`
