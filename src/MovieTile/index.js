@@ -1,10 +1,11 @@
-import { Poster, StyledVideoIcon, Wrapper } from "./styled"
+import { Image, ImageWrapper, Wrapper } from "./styled"
 
 export const MovieTile = () => {
   return (
     <Wrapper>
-      <Poster />
-      <StyledVideoIcon />
+      <ImageWrapper>
+          <Image/>
+      </ImageWrapper>
     </Wrapper>
   )
 }
