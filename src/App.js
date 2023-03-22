@@ -1,8 +1,9 @@
+import { MovieTile } from "./MovieTile";
 
 function App() {
   return (
     <div>
-      test
+      <MovieTile />
     </div>
   );
 }
