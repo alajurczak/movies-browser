@@ -120,7 +120,7 @@ export const StyledSearchIcon = styled(SearchIcon)`
 export const SearchBarIcon = styled.div`
   color: ${({ theme }) => theme.colors.waterloo};
   background-color: ${({ theme }) => theme.colors.white};
-  height: 48px;
+  height: 44px;
   width: 50px;
   border-radius: 32px 0 0 33px;
   display: flex;
@@ -134,7 +134,7 @@ export const SearchBarIcon = styled.div`
 `;
 
 export const SearchBarInput = styled.input`
-  height: 48px;
+  height: 44px;
   width: 100%;
   padding: 19px;
   border: 1px solid ${({ theme }) => theme.colors.mystic};
