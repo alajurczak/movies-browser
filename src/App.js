@@ -1,4 +1,4 @@
-import Header from "./Common/Header";
+import Header from "./common/Header";
 
 function App() {
   return (
