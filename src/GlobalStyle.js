@@ -13,5 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         background: ${({ theme }) => theme.colors.whisper};
         color: ${({ theme }) => theme.colors.black};
+        display: flex;
+        justify-content: center;
     }
 `;
