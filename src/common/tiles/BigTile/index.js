@@ -14,10 +14,11 @@ import {
     ActualRating,
     MaxRating,
     Votes,
-    TileArticle
+    TileArticle,
+    StarIcon
 } from "./styled";
 import poster from "../../../images/poster.png";
-import { ReactComponent as StarIcon } from "./StarIcon.svg";
+
 
 
 export const BigTile = () => {
@@ -29,7 +30,7 @@ export const BigTile = () => {
                 <Year>2020</Year>
                 <Wrapper>
                     <SubTitle>Production:</SubTitle>
-                    <Information>China, United States of America</Information>
+                    <Information>China, USA</Information>
                 </Wrapper>
                 <Wrapper>
                     <SubTitle>Release date:</SubTitle>
@@ -48,13 +49,13 @@ export const BigTile = () => {
                     </RatesWrapper>
                     <Votes>335 votes</Votes>
                 </VotesWrapper >
-                <TileArticle>
-                    A young Chinese maiden disguises herself as a male warrior in order to
-                    save her father. Disguises herself as a male warrior in order to save her
-                    father. A young Chinese maiden disguises herself as a male warrior in
-                    order to save her father.
-                </TileArticle>
             </Content>
+            <TileArticle>
+                A young Chinese maiden disguises herself as a male warrior in order to
+                save her father. Disguises herself as a male warrior in order to save her
+                father. A young Chinese maiden disguises herself as a male warrior in
+                order to save her father.
+            </TileArticle>
         </Container>
     );
 };
