@@ -1,10 +1,11 @@
 import { MovieTile } from "./MovieTile";
+import Header from "./common/Header";
 
 function App() {
   return (
-    <div>
-      <MovieTile />
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
