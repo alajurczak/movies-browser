@@ -3,7 +3,7 @@ import VideoIcon from "./Images/VideoIcon.svg";
 import {ReactComponent as StarIcon} from "./Images/Star.svg"
 
 export const MovieWrapper = styled.div`
-    width: 342px;
+    max-width: 342px;
     height: 650px;
     background: ${({theme}) => theme.colors.white};
     display: grid;
@@ -31,7 +31,7 @@ export const ImageWrapper = styled.div`
 export const DescriptionWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 `
 
 export const Content = styled.div`
@@ -61,12 +61,6 @@ export const WrapperTag = styled.div`
     gap: 8px;
 `
 
-export const ContentWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-`
-
 export const RatingWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -80,10 +74,10 @@ export const Star = styled(StarIcon)`
 export const Rates = styled.div`
     font-size: 16px;
     font-weight: 600;
-    color: ${({theme}) => theme.colors.smoke}
+    color: ${({theme}) => theme.colors.smoke};
 `
 
 export const Votes = styled.div`
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.smoke}
+    color: ${({ theme }) => theme.colors.waterloo};
 `
