@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "./Star.svg";
+import { ReactComponent as Star } from "./images/Star.svg";
+const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
+const largeBp = ({ theme }) => theme.breakpoints.large;
 
 export const Container = styled.div`
     max-width: 1368px;
@@ -12,12 +14,12 @@ export const Container = styled.div`
     grid-template-columns: minmax(auto, 312px) 1fr;
     grid-template-rows: auto 1fr;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    @media (max-width: ${largeBp}px) {
       gap: 20px 28px;
       grid-template-columns: minmax(auto, 215px) 1fr;
     };
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         gap: 15px 16px;
         grid-template-columns: minmax(auto, 114px) 1fr;
         padding: 16px;
@@ -31,21 +33,21 @@ export const Poster = styled.img`
     border-radius: 5px;
     grid-row: span 2;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    @media (max-width: ${largeBp}px) {
       width: 215px;
       height: 319px;
     };
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
       width: 114px;
       height: 169px;
     };
 `;
 
 export const Content = styled.div`
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    @media (max-width: ${largeBp}px) {
       grid-row: span 2;
-    }
+    };
 `;
 
 export const Title = styled.header`
@@ -55,7 +57,7 @@ export const Title = styled.header`
     margin-top: 8px;
     margin-bottom: 24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-weight: 500;
         font-size: 16px;
         line-height: 130%;
@@ -69,7 +71,7 @@ export const Year = styled.div`
     line-height: 120%;
     margin-bottom: 24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 13px;
         line-height: 130%;
         margin-bottom: 8px;
@@ -88,7 +90,7 @@ export const SubTitle = styled.p`
     margin-top: 0px;
     margin-bottom: 8px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         display: none;
     };
 `;
@@ -97,7 +99,7 @@ export const Information = styled.p`
     margin-top: 0px;
     margin-bottom: 8px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 12px;
         line-height: 130%;
     };
@@ -108,7 +110,7 @@ export const GenreWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    @media (max-width: ${largeBp}px) {
         gap: 8px;
     };
 `;
@@ -120,7 +122,7 @@ export const GenreTile = styled.div`
     font-size: 14px;
     line-height: 100%;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 10px;
         line-height: 110%;
         margin: 0px;
@@ -132,7 +134,7 @@ export const VotesWrapper = styled.div`
     display: flex;
     align-items:center;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         margin-top: 10px;
     };
 `;
@@ -143,7 +145,7 @@ export const RatesWrapper = styled.div`
     margin: 24px 0;
     line-height: 100%;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         margin: 12px 0;
         margin: 0px;
     };
@@ -153,7 +155,7 @@ export const StarIcon = styled(Star)`
     height: auto;
     width: 24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         width: 16px;
     };
 `;
@@ -164,7 +166,7 @@ export const ActualRating = styled.p`
     font-size: 22px;
     line-height: 130%;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 16px;
     };
 
@@ -174,7 +176,7 @@ export const MaxRating = styled.p`
     line-height: 120%;
     font-size: 14px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         display: none;
     };
 `;
@@ -184,10 +186,10 @@ export const Votes = styled.p`
     line-height: 120%;
     font-size: 14px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 13px;
         line-height: 130%;
-        color: ${({theme}) => theme.colors.waterloo};
+        color: ${({ theme }) => theme.colors.waterloo};
     };
 `;
 
@@ -195,12 +197,12 @@ export const TileArticle = styled.article`
     font-size: 20px;
     line-height: 160%;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+    @media (max-width: ${largeBp}px) {
         grid-row: 3;
         grid-column: span 2;
     };
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${mobileBp}px) {
         font-size: 14px;
         line-height: 160%;
     };
