@@ -11,6 +11,9 @@ export const theme = {
         pattensBlue: "#D6E4FF",
         scienceBlue: "#0044CC",
         snuff: "#DDDDEE",
-        
-    }
+    },
+    breakpoints: {
+        mobileMax: 767,
+        mobileMin: 470,
+    },
 };
