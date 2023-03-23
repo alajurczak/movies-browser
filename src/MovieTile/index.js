@@ -1,38 +1,41 @@
-import {
-  ImageWrapper,
-  MovieWrapper,
-  DescriptionWrapper,
-  Content,
-  ExtraContent,
-  Tag,
-  WrapperTag,
-  Star,
-  RatingWrapper,
-  Votes,
-  Rates
+import { 
+  DescriptionWrapper, 
+  Subtitle, 
+  ImageWrapper, 
+  TileWrapper, 
+  Rate, 
+  RatingWrapper, 
+  Star, 
+  Tag, 
+  TagsWraper, 
+  Title, 
+  Votes 
 } from "./styled"
 
 export const MovieTile = () => {
   return (
-    <MovieWrapper>
-      <ImageWrapper>
-        {/* Poster downloaded from api */}
-      </ImageWrapper>
+
+      <TileWrapper>
+        <ImageWrapper>
+        </ImageWrapper>
         <DescriptionWrapper>
-          <Content>Film bardzo bardzo bardzo bardzo długi tytuł</Content>
-          <ExtraContent>Rok</ExtraContent>
-          <WrapperTag>
-            <Tag>{"Tag"}</Tag>
-            <Tag>{"Tag"}</Tag>
-            <Tag>{"Tag"}</Tag>
-            <Tag>{"Tag"}</Tag>
-          </WrapperTag>
+          <Title>Video Title</Title>
+          <Subtitle>
+            2020
+          </Subtitle>
+          <TagsWraper>
+            <Tag>tag 1</Tag>
+            <Tag>tag 2</Tag>
+            <Tag>tag 3</Tag>
+            <Tag>tag 4</Tag>
+          </TagsWraper>
           <RatingWrapper>
             <Star />
-            <Rates>{"9.9"}</Rates>
-            <Votes>{"180 votes"}</Votes>
+            <Rate>8.9</Rate>
+            <Votes>120 votes</Votes>
           </RatingWrapper>
         </DescriptionWrapper>
-    </MovieWrapper>
+      </TileWrapper>
+ 
   )
-}
+};
