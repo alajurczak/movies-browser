@@ -94,19 +94,17 @@ export const Title = styled.h2`
     font-weight: 500;
     font-size: 22px;
     line-height: 1.3;
-    color: #18181b;
+    color: ${({theme}) => theme.colors.smoke};
     margin: 16px 0 0;
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         margin: 0 0 0 8px;
         font-size: 16px;
-        line-height: 1.1;
     }
 `;
 
 export const Subtitle = styled.p`
     font-weight: 400;
     font-size: 18px;
-    line-height: 150%;
     margin: 0;
     color: ${({ theme }) => theme.colors.waterloo};
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
