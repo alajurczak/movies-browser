@@ -1,4 +1,5 @@
 import styled from "styled-components";
+const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
 
 export const Loader = styled.div`
   width: 91px;
@@ -16,7 +17,7 @@ export const Loader = styled.div`
         transform: rotate(360deg);
       };
   };
-     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px){
+     @media (max-width: ${mobileMinBp}px){
       width: 35px;
       height: 35px;
       border: 4px solid ${({ theme }) => theme.colors.snuff};
