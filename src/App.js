@@ -1,3 +1,4 @@
+import { MovieTile } from "./MovieTile";
 import Header from "./common/Header";
 import PopularMovies from "./features/PopularMovies";
 import { Main } from "./common/Main";
