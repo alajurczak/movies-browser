@@ -8,6 +8,7 @@ export const MovieList = styled.ul`
   display: grid;
   grid-gap: 24px;
   justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media (max-width: ${mobileBp}px) {
     gap: 16px;
