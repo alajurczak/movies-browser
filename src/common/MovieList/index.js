@@ -8,9 +8,10 @@ export const MovieList = styled.ul`
   display: grid;
   grid-gap: 24px;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
 
   @media (max-width: ${mobileBp}px) {
     gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   }
 `;
