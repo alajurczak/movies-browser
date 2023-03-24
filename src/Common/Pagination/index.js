@@ -4,6 +4,7 @@ export const Pagination = () => {
     return (
         <Wrapper>
             <Button>
+                <ArrowIconPrevious mobile="true" />
                 <ArrowIconPrevious />
                 <ButtonText>First</ButtonText>
             </Button>
@@ -24,6 +25,7 @@ export const Pagination = () => {
             <Button>
                 <ButtonText>Last</ButtonText>
                 <ArrowIconNext />
+                <ArrowIconNext mobile="true"/>
             </Button>
         </Wrapper>
     )
