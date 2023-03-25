@@ -11,6 +11,7 @@ export const theme = {
         pattensBlue: "#D6E4FF",
         scienceBlue: "#0044CC",
         snuff: "#DDDDEE",
+        linkWater: "#D3DEF3",
     },
 
     breakpoints: {
