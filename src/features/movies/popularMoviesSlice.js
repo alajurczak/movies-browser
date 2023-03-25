@@ -4,13 +4,13 @@ const popularMoviesSlice = createSlice({
     name: 'popularMovies',
     initialState: {
         status: "loading",
-        movies: [],
+        movies: [""],
     },
     reducers: {
         fetchMoviesLoading: state => { state.status = "loading" },
         fetchMoviesError: state => { state.status = "error" },
         fetchMoviesSuccess: (state, { payload: movies }) => {
-            state.status = "success",
+            state.status = "success";
             state.movies = movies.results;
             state.page = movies.page;
         }

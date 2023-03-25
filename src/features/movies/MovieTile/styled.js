@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import VideoIcon from "./Images/VideoIcon.svg";
 import { ReactComponent as StarIcon } from "./Images/Star.svg";
-const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
+const mobileMaxBp = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const TileWrapper = styled.div`
-  width: 324px;
+  width: 100%;
+  height: 100%;
   background: #ffffff;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -23,26 +23,20 @@ export const TileWrapper = styled.div`
     transform: scale(1.05);
   }
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     grid-template-columns: auto 1fr;
     padding: 12px;
   }
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.img`
   display: flex;
   justify-content: center;
-  height: 434px;
+  height: auto;
+  width: 100%;
   border-radius: 5px;
-  flex-basis: auto;
-  background-image: url(${VideoIcon});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
-  background-color: ${({ theme }) => theme.colors.silver};
-  color: ${({ theme }) => theme.colors.white};
-
-  @media (max-width: ${mobileMinBp}px) {
+  
+  @media (max-width: ${mobileMaxBp}px) {
     width: 114px;
     height: 169px;
   }
@@ -58,7 +52,7 @@ export const Star = styled(StarIcon)`
   width: 24px;
   height: auto;
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     width: 20px;
   }
 `;
@@ -69,7 +63,7 @@ export const Rate = styled.span`
   font-size: 16px;
   font-weight: 600;
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     font-size: 13px;
     margin: 0 12px 0 10px;
   }
@@ -80,7 +74,7 @@ export const Votes = styled.span`
   font-size: 14px;
   font-weight: 400;
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     font-size: 12px;
   }
 `;
@@ -92,7 +86,7 @@ export const DescriptionWrapper = styled.div`
   justify-content: space-between;
   gap: 8px;
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     justify-content: start;
     margin: 0 0 0 8px;
     gap: 4px;
@@ -106,7 +100,7 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.smoke};
   margin: 16px 0 0;
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     margin: 0 0 0 8px;
     font-size: 16px;
   }
@@ -118,7 +112,7 @@ export const Subtitle = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.waterloo};
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     margin: 0 0 0 8px;
     font-size: 12px;
   }
@@ -140,7 +134,7 @@ export const Tag = styled.div`
   background-color: ${({ theme }) => theme.colors.mystic};
   color: ${({ theme }) => theme.colors.smoke};
 
-  @media (max-width: ${mobileMinBp}px) {
+  @media (max-width: ${mobileMaxBp}px) {
     height: 19px;
     padding: 4px 8px;
     font-size: 10px;

@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMoviesLoading, selectMovies } from "../popularMoviesSlice";
 import {
   DescriptionWrapper,
   Subtitle,
@@ -13,24 +16,34 @@ import {
 } from "./styled";
 
 export const MovieTile = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch((fetchMoviesLoading()));
+  }, [dispatch])
+
+  const movies = useSelector(selectMovies);
+  const posterPath = "https://image.tmdb.org/t/p/w500";
+
   return (
-    <TileWrapper>
-      <ImageWrapper></ImageWrapper>
-      <DescriptionWrapper>
-        <Title>Video Title</Title>
-        <Subtitle>2020</Subtitle>
-        <TagsWraper>
-          <Tag>tag 1</Tag>
-          <Tag>tag 2</Tag>
-          <Tag>tag 3</Tag>
-          <Tag>tag 4</Tag>
-        </TagsWraper>
-        <RatingWrapper>
-          <Star />
-          <Rate>8.9</Rate>
-          <Votes>120 votes</Votes>
-        </RatingWrapper>
-      </DescriptionWrapper>
-    </TileWrapper>
+    <>
+      {movies.map(movie => (
+        <TileWrapper key={movie.id}>
+          <ImageWrapper src={`${posterPath}${movie.poster_path}`} alt=""></ImageWrapper>
+          <DescriptionWrapper>
+            <Title>{movie.original_title}</Title>
+            <Subtitle>{new Date(movie.release_date).getFullYear()}</Subtitle>
+            <TagsWraper>
+              <Tag>Tag1</Tag>
+            </TagsWraper>
+            <RatingWrapper>
+              <Star />
+              <Rate>{movie.vote_average}</Rate>
+              <Votes>{movie.vote_count} votes</Votes>
+            </RatingWrapper>
+          </DescriptionWrapper>
+        </TileWrapper>
+      ))}
+    </>
   );
 };
