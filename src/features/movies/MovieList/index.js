@@ -1,4 +1,4 @@
-import { Container } from "../../../common/Container/styled";
+import { Container } from "../../../common/Container";
 import { MovieList } from "./styled";
 import { SectionTitle } from "../../../common/SectionTitle/styled";
 import { MovieTile } from "../MovieTile";
