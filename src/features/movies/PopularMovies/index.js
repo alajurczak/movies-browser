@@ -12,61 +12,61 @@ const PopularMovies = () => {
           <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-                    <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
-           <li>
+          <li>
             <MovieTile />
           </li>
         </MovieList>

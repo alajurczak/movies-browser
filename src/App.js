@@ -9,8 +9,8 @@ function App() {
       <Header />
       <Main>
         <PopularMovies />
+        <Pagination />
       </Main>
-      <Pagination />
     </>
   );
 }
