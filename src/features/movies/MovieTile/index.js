@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesLoading, selectMovies } from "../popularMoviesSlice";
+import { Genre } from "./Genre";
 import {
   DescriptionWrapper,
   Subtitle,
@@ -9,8 +10,6 @@ import {
   Rate,
   RatingWrapper,
   Star,
-  Tag,
-  TagsWraper,
   Title,
   Votes,
 } from "./styled";
@@ -33,9 +32,7 @@ export const MovieTile = () => {
           <DescriptionWrapper>
             <Title>{movie.original_title}</Title>
             <Subtitle>{new Date(movie.release_date).getFullYear()}</Subtitle>
-            <TagsWraper>
-              <Tag>Tag1</Tag>
-            </TagsWraper>
+            <Genre/>
             <RatingWrapper>
               <Star />
               <Rate>{movie.vote_average}</Rate>
