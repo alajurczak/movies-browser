@@ -9,66 +9,7 @@ const PopularMovies = () => {
       <section>
         <SectionTitle>Popular Movies</SectionTitle>
         <MovieList>
-          <li>
             <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
-          <li>
-            <MovieTile />
-          </li>
         </MovieList>
       </section>
     </Container>

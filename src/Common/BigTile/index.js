@@ -17,7 +17,7 @@ import {
   TileArticle,
   StarIcon,
 } from "./styled";
-import poster from "../../../images/poster.png";
+import poster from "./images/poster.png";
 
 export const BigTile = () => {
   return (

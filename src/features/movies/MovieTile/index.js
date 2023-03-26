@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMoviesLoading, selectMovies } from "../popularMoviesSlice";
+import { Genre } from "./Genre";
 import {
   DescriptionWrapper,
   Subtitle,
@@ -6,31 +10,43 @@ import {
   Rate,
   RatingWrapper,
   Star,
-  Tag,
-  TagsWraper,
   Title,
   Votes,
 } from "./styled";
+import { imagesBaseUrl } from "../../../ApiPaths";
+import { fetchGenres } from "./Genre/genreSlice";
 
 export const MovieTile = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch((fetchMoviesLoading()));
+    dispatch(fetchGenres());
+  }, [dispatch])
+
+  const movies = useSelector(selectMovies);
+
   return (
-    <TileWrapper>
-      <ImageWrapper></ImageWrapper>
-      <DescriptionWrapper>
-        <Title>Video Title</Title>
-        <Subtitle>2020</Subtitle>
-        <TagsWraper>
-          <Tag>tag 1</Tag>
-          <Tag>tag 2</Tag>
-          <Tag>tag 3</Tag>
-          <Tag>tag 4</Tag>
-        </TagsWraper>
-        <RatingWrapper>
-          <Star />
-          <Rate>8.9</Rate>
-          <Votes>120 votes</Votes>
-        </RatingWrapper>
-      </DescriptionWrapper>
-    </TileWrapper>
+    <>
+      {movies.map(
+        ({
+          id, title, poster_path, vote_average, vote_count, release_date, genre_ids,
+        }) => (
+          <TileWrapper key={id} id={id}>
+            <ImageWrapper src={`${imagesBaseUrl}/w500${poster_path}`} alt=""></ImageWrapper>
+            <DescriptionWrapper>
+              <Title>{title}</Title>
+              <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>
+              <Genre genre_ids={genre_ids} />
+              <RatingWrapper>
+                <Star />
+                <Rate>{vote_average}</Rate>
+                <Votes>{vote_count} votes</Votes>
+              </RatingWrapper>
+            </DescriptionWrapper>
+          </TileWrapper>
+        )
+      )}
+    </>
   );
 };
