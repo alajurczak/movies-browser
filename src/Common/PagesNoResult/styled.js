@@ -10,3 +10,7 @@ export const Title = styled.h1`
   font-size: 36px;
   line-height: 120%;
 `
+
+export const NoSearchImage = styled(NoSearch)`
+  align-self: center;
+  `
