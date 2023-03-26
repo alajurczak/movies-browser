@@ -1,6 +1,6 @@
-import { Container } from "../../../common/Container";
+import { Container } from "../../../Common/Container";
 import { MovieList } from "./styled";
-import { SectionTitle } from "../../../common/SectionTitle/styled";
+import { SectionTitle } from "../../../Common/SectionTitle/styled";
 import { MovieTile } from "../MovieTile";
 
 const PopularMovies = () => {

@@ -1,7 +1,7 @@
-import Header from "./common/Header";
+import Header from "./Common/Header";
 import PopularMovies from "./features/movies/MovieList";
-import { Main } from "./common/Main/styled";
-import { Pagination } from "./common/Pagination";
+import { Main } from "./Common/Main/styled";
+import { Pagination } from "./Common/Pagination";
 
 function App() {
   return (
