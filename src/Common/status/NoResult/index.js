@@ -1,6 +1,6 @@
 import { Wrapper, Title, NoSearchImage } from "./styled"
 
-export const PagesNoResult = () => {
+export const NoResult = () => {
   return (
     <Wrapper>
       <Title>Sorry, there are no results for “Muan”</Title>
