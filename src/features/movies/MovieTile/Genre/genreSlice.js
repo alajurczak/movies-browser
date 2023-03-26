@@ -8,20 +8,20 @@ const genreSlice = createSlice({
     reducers: {
         fetchGenres: () => ({ genre: [] }),
         fetchGenresError: () => ({ genre: [] }),
-        fetchGenreSuccess: (state, { payload: genresApi }) => {
-            state.genresApi = genresApi.genres;
-        },
+        fetchGenresSuccess: (state, { payload: genresApi }) => ({
+            genre: genresApi.genres,
+        }),
     }
 });
 
 export const {
     fetchGenres,
     fetchGenresError,
-    fetchGenreSuccess
+    fetchGenresSuccess
 } = genreSlice.actions;
 
 const selectGenresState = state => state.genres;
 
-export const selectGenre = state =>selectGenresState(state).genre;
+export const selectGenres = state => selectGenresState(state).genre;
 
 export default genreSlice.reducer;

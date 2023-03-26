@@ -13,34 +13,40 @@ import {
   Title,
   Votes,
 } from "./styled";
+import { imagesBaseUrl } from "../../../ApiPaths";
+import { fetchGenres } from "./Genre/genreSlice";
 
 export const MovieTile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch((fetchMoviesLoading()));
+    dispatch(fetchGenres());
   }, [dispatch])
 
   const movies = useSelector(selectMovies);
-  const posterPath = "https://image.tmdb.org/t/p/w500";
 
   return (
     <>
-      {movies.map(movie => (
-        <TileWrapper key={movie.id}>
-          <ImageWrapper src={`${posterPath}${movie.poster_path}`} alt=""></ImageWrapper>
-          <DescriptionWrapper>
-            <Title>{movie.original_title}</Title>
-            <Subtitle>{new Date(movie.release_date).getFullYear()}</Subtitle>
-            <Genre/>
-            <RatingWrapper>
-              <Star />
-              <Rate>{movie.vote_average}</Rate>
-              <Votes>{movie.vote_count} votes</Votes>
-            </RatingWrapper>
-          </DescriptionWrapper>
-        </TileWrapper>
-      ))}
+      {movies.map(
+        ({
+          id, title, poster_path, vote_average, vote_count, release_date, genre_ids,
+        }) => (
+          <TileWrapper key={id} id={id}>
+            <ImageWrapper src={`${imagesBaseUrl}/w500${poster_path}`} alt=""></ImageWrapper>
+            <DescriptionWrapper>
+              <Title>{title}</Title>
+              <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>
+              <Genre genre_ids={genre_ids} />
+              <RatingWrapper>
+                <Star />
+                <Rate>{vote_average}</Rate>
+                <Votes>{vote_count} votes</Votes>
+              </RatingWrapper>
+            </DescriptionWrapper>
+          </TileWrapper>
+        )
+      )}
     </>
   );
 };
