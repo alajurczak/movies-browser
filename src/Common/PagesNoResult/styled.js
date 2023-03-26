@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as NoSearch } from "./Images/NoSearchImages.svg"
 
 export const Wrapper = styled.div`
   display: flex;
