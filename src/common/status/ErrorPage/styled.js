@@ -28,3 +28,22 @@ export const Content = styled.div`
   line-height: 130%;
   color: ${({ theme }) => theme.colors.smoke};
 `
+
+export const Button = styled.button`
+  margin-top: 24px;
+  padding: 16px 24px;
+  border-radius: 5px;
+  border: none;
+  gap: 10px;
+  background-color: ${({theme}) => theme.colors.scienceBlue};
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: ${({theme}) => theme.colors.white};
+  :hover{
+    filter: brightness(110%);
+  };
+  :active{
+    filter: brightness(120%);
+  };
+`
