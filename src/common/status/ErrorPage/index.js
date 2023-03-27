@@ -1,9 +1,9 @@
-import { Wrapper } from "./styled"
+import { DangerIcon, Wrapper } from "./styled";
 
 export const ErrorPage = () => {
   return (
     <Wrapper>
-
+      <DangerIcon />
     </Wrapper>
   )
-}
+};
