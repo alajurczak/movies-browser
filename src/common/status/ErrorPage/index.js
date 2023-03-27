@@ -1,4 +1,4 @@
-import { DangerIcon, Header, Wrapper } from "./styled";
+import { Content, DangerIcon, Header, Wrapper } from "./styled";
 
 export const ErrorPage = () => {
   return (
@@ -7,6 +7,10 @@ export const ErrorPage = () => {
         <Header>
           Ooops! Something went wrong... 
         </Header>
+        <Content>
+          Please check your network connection<br/>
+          and try again
+        </Content>
     </Wrapper>
   )
 };
