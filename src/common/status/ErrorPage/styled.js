@@ -20,3 +20,11 @@ export const Header = styled.h1`
   line-height: 120%;
   color: ${({theme}) => theme.colors.smoke};
 `
+
+export const Content = styled.div`
+  text-align: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors.smoke};
+`
