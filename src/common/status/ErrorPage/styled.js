@@ -1,11 +1,20 @@
 import styled from "styled-components";
 import { ReactComponent as Danger } from "../Images/Danger.svg"
+const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
+const largeBp = ({ theme }) => theme.breakpoints.large;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
+  @media (max-width: ${largeBp}px) {
+    scale:85%;
+  }
+    @media (max-width: ${mobileMinBp}px) {
+    scale:70%;
+  }
 `
 
 export const DangerIcon = styled(Danger)`
@@ -15,6 +24,7 @@ export const DangerIcon = styled(Danger)`
 `
 
 export const Header = styled.h1`
+  text-align: center;
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
