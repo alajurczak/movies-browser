@@ -1,6 +1,6 @@
 import { Button, Content, DangerIcon, Header, Wrapper } from "./styled";
 
-export const ErrorPage = () => {
+export const Error = () => {
   return (
     <Wrapper>
       <DangerIcon />
