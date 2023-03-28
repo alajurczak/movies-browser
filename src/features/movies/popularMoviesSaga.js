@@ -7,7 +7,7 @@ import {
 import { getApi } from "../../getApi";
 import { baseUrl, apiKey, language } from "../../ApiPaths";
 
-function* fetchPopularMoviesHandler({payload: page}) {
+function* fetchPopularMoviesHandler({ payload: page }) {
   try {
     const popularMovies = yield call(
       getApi,

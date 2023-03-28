@@ -13,7 +13,7 @@ const PopularMovies = () => {
           <MovieTile />
         </MovieList>
       </section>
-      <Pagination/>
+      <Pagination />
     </Container>
   );
 };
