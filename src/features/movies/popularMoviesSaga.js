@@ -7,11 +7,11 @@ import {
 import { getApi } from "../../getApi";
 import { baseUrl, apiKey, language } from "../../ApiPaths";
 
-function* fetchPopularMoviesHandler() {
+function* fetchPopularMoviesHandler({payload: page}) {
   try {
     const popularMovies = yield call(
       getApi,
-      `${baseUrl}/movie/popular${apiKey}${language}`
+      `${baseUrl}/movie/popular${apiKey}${language}&page=${page}`
     );
     yield put(fetchMoviesSuccess(popularMovies));
   } catch {
