@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Danger } from "../Images/Danger.svg"
 const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
@@ -39,7 +40,7 @@ export const Content = styled.div`
   color: ${({ theme }) => theme.colors.smoke};
 `
 
-export const Button = styled.button`
+export const Button = styled(NavLink)`
   margin-top: 24px;
   padding: 16px 24px;
   border-radius: 5px;
@@ -50,7 +51,9 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 19px;
   color: ${({theme}) => theme.colors.white};
+  text-decoration: none;
   :hover{
+    cursor: pointer;
     filter: brightness(110%);
   };
   :active{
