@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
 const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
@@ -14,7 +15,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const TitleLink = styled.a`
+export const TitleLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.white};
   display: flex;
@@ -81,7 +82,7 @@ export const NavigationList = styled.div`
   }
 `;
 
-export const StyledNavLink = styled.a`
+export const StyledNavLink = styled(NavLink)`
   display: block;
   color: ${({ theme }) => theme.colors.white};
   background: none;
@@ -92,11 +93,11 @@ export const StyledNavLink = styled.a`
   padding: 13.5px 24px;
   text-decoration: none;
 
-  &:active {
+  &.active {
     border: 1px solid ${({ theme }) => theme.colors.white};
   }
 
-  &:hover {
+  &.hover {
     cursor: pointer;
   }
 
