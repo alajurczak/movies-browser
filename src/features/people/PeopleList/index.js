@@ -9,13 +9,10 @@ import { useEffect } from "react";
 const PopularPeople = () => {
     const dispatch = useDispatch();
     const people = useSelector(selectPopularPeople);
-    const totalPages = useSelector(selectPopularPeopleTotalPages);
 
     useEffect(() => {
         dispatch(fetchPeopleLoading());
     }, [dispatch]);
-
- 
 
     return (
         <Container>
