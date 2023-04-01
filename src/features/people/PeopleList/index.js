@@ -1,19 +1,37 @@
 import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle/styled";
-import { Pagination } from "../../../common/Pagination";
 import { PeopleList } from "./styled";
 import { PersonTile } from "../PersonTile";
+import { fetchPeopleLoading, selectPopularPeople, selectPopularPeopleTotalPages } from "../popularPeopleSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const PopularPeople = () => {
+    const dispatch = useDispatch();
+    const people = useSelector(selectPopularPeople);
+    const totalPages = useSelector(selectPopularPeopleTotalPages);
+
+    useEffect(() => {
+        dispatch(fetchPeopleLoading());
+    }, [dispatch]);
+
+ 
+
     return (
         <Container>
             <section>
                 <SectionTitle>Popular People</SectionTitle>
-                <PeopleList>
-                    <PersonTile />
-                </PeopleList>
+                {people && people.length > 0 && (<PeopleList>
+                    {people.map(({ profile_path, id, name }) => (
+                        <PersonTile
+                            key={id}
+                            id={id}
+                            profile_path={profile_path}
+                            name={name}
+                        />
+                    ))}
+                </PeopleList>)}
             </section>
-            <Pagination />
         </Container>
     );
 };
