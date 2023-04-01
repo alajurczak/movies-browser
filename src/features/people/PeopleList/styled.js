@@ -1,7 +1,8 @@
 import styled from "styled-components";
-const mobileMediumBp = ({ theme }) => theme.breakpoints.medium;
+const mediumBp = ({ theme }) => theme.breakpoints.medium;
 const mobileMaxBp = ({ theme }) => theme.breakpoints.mobileMax;
-const mobileLargeBp = ({ theme }) => theme.breakpoints.large;
+const largeBp = ({ theme }) => theme.breakpoints.large;
+const maxBp = ({ theme }) => theme.breakpoints.max;
 
 export const PeopleList = styled.div`
     padding: 0;
@@ -11,17 +12,21 @@ export const PeopleList = styled.div`
     justify-content: center;
     grid-template-columns: repeat(6, 1fr);
 
-    @media (max-width: ${mobileLargeBp}px) {
+    @media (max-width: ${maxBp}px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (max-width: ${largeBp}px) {
         grid-template-columns: repeat(4, 1fr);
     }
 
     @media (max-width: ${mobileMaxBp}px) {
         gap: 16px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: ${mobileMediumBp}px) {
+    @media (max-width: ${mediumBp}px) {
         gap: 16px;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     };
 `;
