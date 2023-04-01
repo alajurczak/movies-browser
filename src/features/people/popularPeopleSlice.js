@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const popularPeopleSlice = createSLice({
+const popularPeopleSlice = createSlice({
     name: "popularPeople",
     initialState: {
         status: "loading",
@@ -8,10 +8,10 @@ const popularPeopleSlice = createSLice({
     },
     reducers: {
         fetchPeopleLoading: () => ({
-            status: "loading"
+            status: "loading",
         }),
         fetchPeopleError: () => ({
-            status: "error"
+            status: "error",
         }),
         fetchPeopleSuccess: (state, { payload: people }) => ({
             status: "success",
