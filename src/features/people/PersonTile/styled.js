@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${mobileMinBp}px) {
         padding: 8px;
+        width: 138px;
     };
 `;
 

@@ -28,5 +28,6 @@ export const PeopleList = styled.div`
     @media (max-width: ${mediumBp}px) {
         gap: 16px;
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
     };
 `;
