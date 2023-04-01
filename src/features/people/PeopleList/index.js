@@ -2,7 +2,7 @@ import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle/styled";
 import { PeopleList } from "./styled";
 import { PersonTile } from "../PersonTile";
-import { fetchPeopleLoading, selectPopularPeople, selectPopularPeopleStatus, selectPopularPeopleTotalPages } from "../popularPeopleSlice";
+import { fetchPeopleLoading, selectPopularPeople, selectPopularPeopleStatus } from "../popularPeopleSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Loading } from "../../../common/status/Loading";
