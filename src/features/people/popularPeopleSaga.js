@@ -17,7 +17,7 @@ function* fetchPopularPeopleHandler() {
         );
         yield put(fetchPeopleSuccess(people));
     } catch (error) {
-        yield put(fetchPeopleError);
+        yield put(fetchPeopleError());
     }
 }
 
