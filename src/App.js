@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./common/Header";
 import PopularMovies from "./features/movies/MovieList";
-import { Error } from "./common/status/Error";
 import { Main } from "./common/Main/styled";
+import PeopleList from "./features/people/PeopleList";
+
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <Main>
         <Routes>
           <Route path="/movies" element={<PopularMovies />} />
-          <Route path="/people" element={<Error />} />
+          <Route path="/people" element={<PeopleList />} />
           <Route path="/" element={<Navigate to="/movies" />} />
         </Routes>
       </Main>
