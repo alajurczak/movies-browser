@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMoviesLoading, selectMovies } from "../popularMoviesSlice";
+import { fetchMoviesLoading, selectMovies } from "./popularMoviesSlice";
 import { Genre } from "./Genre";
 import {
   DescriptionWrapper,
