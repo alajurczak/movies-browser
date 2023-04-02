@@ -1,6 +1,6 @@
 import { Header, Loader, Wrapper } from "./styled";
 
-export const LoadingPage = ({ content }) => {
+export const Loading = ({ content }) => {
   return (
     <>
       <Wrapper>

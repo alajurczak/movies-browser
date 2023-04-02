@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as NoSearch } from "./Images/NoSearchImages.svg";
+import { ReactComponent as NoSearch } from ".././Images/NoSearchImages.svg";
 const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMax;
 const largeBp = ({ theme }) => theme.breakpoints.large;
 

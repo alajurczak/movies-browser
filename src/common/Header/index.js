@@ -1,3 +1,4 @@
+
 import {
   StyledHeader,
   TitleLink,
@@ -18,23 +19,17 @@ const Header = () => {
     <StyledHeader>
       <GridWrapper>
         <Wrapper>
-          <TitleLink>
-            {/*  waiting for HashRouter
-                implementation */}
+          <TitleLink to="/movies">
             <StyledVideoIcon />
             <TittleText>Movies Browser</TittleText>
           </TitleLink>
           <nav>
             <NavigationList>
               <li>
-                <StyledNavLink>MOVIES</StyledNavLink>
-                {/*  waiting for HashRouter
-                implementation */}
+                <StyledNavLink to="/movies">MOVIES</StyledNavLink>
               </li>
               <li>
-                <StyledNavLink>PEOPLE</StyledNavLink>
-                {/*  waiting for HashRouter
-                implementation */}
+                <StyledNavLink to="/people">PEOPLE</StyledNavLink>
               </li>
             </NavigationList>
           </nav>

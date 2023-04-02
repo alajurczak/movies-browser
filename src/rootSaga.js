@@ -3,6 +3,7 @@ import { watchFetchPopularMovies } from "./features/movies/MovieTile/popularMovi
 import { watchFetchGenres } from "./features/movies/MovieTile/Genre/genreSaga";
 import { watchFetchPersonData } from "./features/people/ActorTile/personSaga";
 import { watchMovieDetailsAndCredits } from "./features/movies/MoviePage/movieSaga";
+import { watchFetchPopularPeople } from "./features/people/popularPeopleSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchFetchGenres(),
     watchFetchPersonData(),
     watchMovieDetailsAndCredits(),
+        watchFetchPopularPeople(),
   ]);
 }
