@@ -23,7 +23,7 @@ export const Container = styled.div`
     gap: 15px 16px;
     grid-template-columns: minmax(auto, 114px) 1fr;
     padding: 16px;
-    margin: 16px;
+    margin: 16px 0;
   }
 `;
 
