@@ -5,7 +5,7 @@ const largeBp = ({ theme }) => theme.breakpoints.large;
 
 export const Container = styled.div`
   max-width: 1368px;
-  margin: 64px 16px;
+  margin: 0px 16px 64px;
   background-color: ${({ theme }) => theme.colors.white};
   padding: 40px;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
