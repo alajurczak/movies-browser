@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const SectionTitle = styled.h1`
-  margin: 0 0 24px 0;
+  margin: 24px 0 24px 0;
   color: ${({ theme }) => theme.colors.woodsmoke};
   font-weight: 600;
   font-size: 36px;
@@ -13,4 +13,13 @@ export const SectionTitle = styled.h1`
     max-width: 1368px;
     font-size: 18px;
   }
+  ${({ detailsPage }) =>
+    detailsPage &&
+    css`
+      margin: 64px 0 24px;
+
+      @media (max-width: ${mobileBp}px) {
+        margin: 24px 0 16px;
+      }
+    `}
 `;
