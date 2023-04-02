@@ -11,6 +11,7 @@ import {
   Votes,
 } from "./styled";
 import { imagesBaseUrl } from "../../../ApiPaths";
+import noPoster from "./Images/noPoster.png";
 
 export const MovieTile = ({
   id,
@@ -25,18 +26,20 @@ export const MovieTile = ({
   return (
     <TileWrapper key={id} id={id}>
       <ImageWrapper
-        src={`${imagesBaseUrl}/w500${poster_path}`}
+        src={poster_path ? `${imagesBaseUrl}/w500${poster_path}` : noPoster}
         alt=""
       ></ImageWrapper>
       <DescriptionWrapper>
         {title && <Title>{title}</Title>}
         {release_date && <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>}
         {genre_ids && <Genre genre_ids={genre_ids} />}
-        <RatingWrapper>
-          <Star />
-          {rating && <Rate>{rating}</Rate>}
-          {votes && <Votes>{votes} votes</Votes>}
-        </RatingWrapper>
+        {rating && votes ? (
+          <RatingWrapper>
+            <Star />
+            <Rate>{rating}</Rate>
+            <Votes>{votes} votes</Votes>
+          </RatingWrapper>
+        ) : (<Star />)}
       </DescriptionWrapper>
     </TileWrapper>
   );
