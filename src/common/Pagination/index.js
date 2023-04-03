@@ -9,7 +9,10 @@ import {
   Button,
   ArrowIconNext,
 } from "./styled";
-import { fetchMoviesLoading, selectTotalPages } from "../../features/movies/popularMoviesSlice";
+import {
+  fetchMoviesLoading,
+  selectTotalPages,
+} from "../../features/movies/MovieTile/popularMoviesSlice";
 
 export const Pagination = () => {
   const dispatch = useDispatch();
