@@ -46,7 +46,7 @@ const PopularMovies = () => {
                     release_date,
                     genre_ids,
                   }) => (
-                    <StyledLink to={`/movie/${id}/movieDetails`}>
+                    <StyledLink to={`/movie/${id}`}>
                       <MovieTile
                         key={id}
                         id={id}
