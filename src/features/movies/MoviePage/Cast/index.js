@@ -1,46 +1,54 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { selectMovieCredits } from "../movieSlice";
 import {
-  selectPersonData,
-  fetchPersonDataLoading,
-} from "../../../people/ActorTile/personSlice";
-import { GridList } from "../../../../common/GridList/";
+  selectMovieCast,
+  fetchMovieDetailsLoading,
+  selectMovieDetailsStatus,
+} from "../movieSlice";
 import { SectionTitle } from "../../../../common/SectionTitle/styled";
-import { ActorTile, ActorImage, ActorName, ActorRole } from "./styled";
-import { imagesBaseUrl } from "../../../../ApiPaths";
+import { PersonTile } from "../../../people/PersonTile";
+import { Loading } from "../../../../common/status/Loading";
+import { Error } from "../../../../common/status/Error";
+import { Container } from "../../../../common/Container";
+import { PeopleList } from "../../../people/PeopleList/styled";
+import { useParams } from "react-router-dom";
 
 const Cast = () => {
-  const movieCast = useSelector(selectMovieCredits);
-  const person = useSelector(selectPersonData);
   const dispatch = useDispatch();
+  const { id } = useParams();
+  const cast = useSelector(selectMovieCast);
+  const stateOfLoading = useSelector(selectMovieDetailsStatus);
 
   useEffect(() => {
-    dispatch(fetchPersonDataLoading());
-  }, [dispatch]);
+    dispatch(fetchMovieDetailsLoading(id));
+  }, [dispatch, id]);
 
   return (
-    <section>
-      <SectionTitle as="h2">Cast</SectionTitle>
-      <GridList>
-        <li key={movieCast.cast_id}>
-          <ActorTile>
-            <ActorImage
-              src={
-                person.profile_path
-                  ? `${imagesBaseUrl}/w342${
-                      person.profileSizes ? person.profileSizes[1] : ""
-                    }${person.profile_path}`
-                  : person.noProfile
-              }
-              alt=""
-            />
-            <ActorName>{movieCast.name}</ActorName>
-            <ActorRole>{movieCast.role}</ActorRole>
-          </ActorTile>
-        </li>
-      </GridList>
-    </section>
+    <>
+      {stateOfLoading === "loading" ? (
+        <Loading />
+      ) : stateOfLoading === "error" ? (
+        <Error />
+      ) : (
+        <Container>
+          <section>
+            <SectionTitle>Cast</SectionTitle>
+            {cast && cast.length > 0 && (
+              <PeopleList>
+                {cast.map(({ profile_path, id, name }) => (
+                  <PersonTile
+                    key={id}
+                    id={id}
+                    profile_path={profile_path}
+                    name={name}
+                  />
+                ))}
+              </PeopleList>
+            )}
+          </section>
+        </Container>
+      )}
+    </>
   );
 };
 

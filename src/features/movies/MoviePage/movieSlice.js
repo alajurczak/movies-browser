@@ -4,31 +4,35 @@ const movieDetailsAndCreditsSlice = createSlice({
   name: "movieDetailsAndCredits",
   initialState: {
     status: "loading",
-    movieDetails: [],
-    movieCredits: [],
+    movie: [],
+    movieCast: [],
+    movieCrew: [],
   },
   reducers: {
-    fetchMovieDetailsLoading: (state) => {
-      state.status = "loading";
-    },
-    fetchMovieDetailsSuccess: (state, { payload: movieDetails }) => {
-      state.status = "success";
-      state.movieDetails = movieDetails;
-    },
-    fetchMovieCreditsSuccess: (state, { payload: movieCredits }) => {
-      state.status = "success";
-      state.movieCredits = movieCredits;
-    },
-    fetchMovieDetailsError: (state) => {
-      state.status = "error";
-    },
+    fetchMovieDetailsLoading: () => ({
+      status: "loading",
+      movie: [],
+      movieCast: [],
+      movieCrew: [],
+    }),
+    fetchMovieDetailsError: () => ({
+      status: "error",
+      movie: [],
+      movieCast: [],
+      movieCrew: [],
+    }),
+    fetchMovieDetailsSuccess: (_, { payload: { movie, movieDetails } }) => ({
+      status: "success",
+      movie: [movieDetails],
+      movieCast: movie.movieCredits,
+      movieCrew: movie.movieCredits,
+    }),
   },
 });
 
 export const {
   fetchMovieDetailsLoading,
   fetchMovieDetailsSuccess,
-  fetchMovieCreditsSuccess,
   fetchMovieDetailsError,
 } = movieDetailsAndCreditsSlice.actions;
 
@@ -38,8 +42,10 @@ const selectMovieDetailsAndCreditsState = (state) =>
 export const selectMovieDetailsStatus = (state) =>
   selectMovieDetailsAndCreditsState(state).status;
 export const selectMovieDetails = (state) =>
-  selectMovieDetailsAndCreditsState(state).movieDetails;
-export const selectMovieCredits = (state) =>
-  selectMovieDetailsAndCreditsState(state).movieCredits;
+  selectMovieDetailsAndCreditsState(state).movie;
+export const selectMovieCast = (state) =>
+  selectMovieDetailsAndCreditsState(state).movieCast;
+export const selectMovieCrew = (state) =>
+  selectMovieDetailsAndCreditsState(state).movieCrew;
 
 export default movieDetailsAndCreditsSlice.reducer;

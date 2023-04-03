@@ -1,25 +1,22 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, takeLatest, delay } from "redux-saga/effects";
 import {
   fetchMovieDetailsSuccess,
-  fetchMovieCreditsSuccess,
   fetchMovieDetailsError,
   fetchMovieDetailsLoading,
 } from "./movieSlice";
 import { getApi } from "../../../getApi";
 import { baseUrl, apiKey, language } from "../../../ApiPaths";
 
-function* fetchMovieDetailsAndCreditsHandler() {
+function* fetchMovieDetailsAndCreditsHandler({ payload: id }) {
+  const moviePath = `${baseUrl}movie/${id}${apiKey}${language}`;
+  const creditsPath = `${baseUrl}movie/${id}/credits${apiKey}${language}`;
   try {
-    const movieDetails = yield call(
-      getApi,
-      `${baseUrl}movie/550${apiKey}${language}`
-    );
-    const movieCredits = yield call(
-      getApi,
-      `${baseUrl}movie/550/credits${apiKey}${language}`
-    );
-    yield put(fetchMovieDetailsSuccess(movieDetails));
-    yield put(fetchMovieCreditsSuccess(movieCredits));
+    yield delay(1000);
+    const [movie, movieDetails] = yield all([
+      call(getApi, moviePath),
+      call(getApi, creditsPath),
+    ]);
+    yield put(fetchMovieDetailsSuccess(movie, movieDetails));
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }
