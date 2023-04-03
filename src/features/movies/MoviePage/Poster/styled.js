@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const mobileMaxBp = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const Poster = styled.div`

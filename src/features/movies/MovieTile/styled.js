@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { ReactComponent as StarIcon } from "./Images/Star.svg";
 const mobileMaxBp = ({ theme }) => theme.breakpoints.mobileMax;
 
@@ -107,9 +106,4 @@ export const Subtitle = styled.p`
     margin: 0 0 0 8px;
     font-size: 12px;
   }
-`;
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.black};
 `;

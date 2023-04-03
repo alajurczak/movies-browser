@@ -1,16 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectMovieDetails } from "../movieSlice";
-import Rating from "../Rating";
-import {
-  Poster,
-  Info,
-  Title,
-  BigPoster,
-  Gradient,
-} from "./styled";
+import { selectMovie } from "../movieSlice";
+import { Rating } from "../Rating";
+import { Poster, Info, Title, BigPoster, Gradient } from "./styled";
 
-const BackgroundPoster = () => {
-  const movieInfo = useSelector(selectMovieDetails);
+export const BackgroundPoster = () => {
+  const movieInfo = useSelector(selectMovie);
 
   return (
     <>
@@ -36,5 +30,3 @@ const BackgroundPoster = () => {
     </>
   );
 };
-
-export default BackgroundPoster;

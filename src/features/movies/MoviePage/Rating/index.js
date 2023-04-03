@@ -7,7 +7,7 @@ import {
   MaxVote,
 } from "./styled";
 
-const Rating = ({ location, averageVotes, voteAmount }) => (
+export const Rating = ({ location, averageVotes, voteAmount }) => (
   <StyledRating location={location}>
     <Wrapper>
       <StyledStarIcon location={location} />
@@ -19,4 +19,3 @@ const Rating = ({ location, averageVotes, voteAmount }) => (
     <VoteAmount location={location}>{voteAmount} votes</VoteAmount>
   </StyledRating>
 );
-export default Rating;

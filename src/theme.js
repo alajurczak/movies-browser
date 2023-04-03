@@ -14,11 +14,11 @@ export const theme = {
     linkWater: "#D3DEF3",
   },
 
-    breakpoints: {
-        mobileMax: 767,
-        max: 1250,
-        large: 992,
-        medium: 555,
-        mobileMin: 470,
-    },
+  breakpoints: {
+    mobileMax: 767,
+    max: 1250,
+    large: 992,
+    medium: 555,
+    mobileMin: 470,
+  },
 };

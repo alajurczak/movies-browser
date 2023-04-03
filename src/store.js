@@ -15,6 +15,7 @@ const store = configureStore({
     genres: genreReducer,
     movieDetailsAndCredits: movieDetailsAndCreditsReducer,
     popularPeople: popularPeopleReducer,
+    personPage: personPageReducer,
   },
   middleware: [SagaMiddleware],
 });

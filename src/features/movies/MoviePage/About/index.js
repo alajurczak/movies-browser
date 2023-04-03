@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { selectMovieDetails } from "../movieSlice";
+import { selectMovie } from "../movieSlice";
 import { selectGenres } from "../../MovieTile/Genre/genreSlice";
-import Rating from "../Rating";
+import { Rating } from "../Rating";
 import {
   StyledAbout,
   Poster,
@@ -18,9 +18,10 @@ import {
 } from "./styled";
 import { DummyActor } from "../../../people/DummyActor";
 
-const About = () => {
-  const movieInfo = useSelector(selectMovieDetails);
+export const About = () => {
+  const movieInfo = useSelector(selectMovie);
   const genre = useSelector(selectGenres);
+  
 
   return (
     <StyledAbout>
@@ -42,10 +43,10 @@ const About = () => {
             <div>
               <ProductionAndRelease>Production:</ProductionAndRelease>
               <CountryNameLong>
-                {movieInfo.production_countries[0].name}
+                {movieInfo.production_countries.name}
               </CountryNameLong>
               <CountryNameShort>
-                {movieInfo.production_countries[0].iso_3166_1}
+                {movieInfo.production_countries.iso_3166_1}
               </CountryNameShort>
             </div>
           )}
@@ -68,5 +69,3 @@ const About = () => {
     </StyledAbout>
   );
 };
-
-export default About;
