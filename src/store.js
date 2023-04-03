@@ -5,6 +5,7 @@ import movieDetailsAndCreditsReducer from "./features/movies/MoviePage/movieSlic
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 import popularPeopleReducer from "./features/people/popularPeopleSlice";
+import personPageReducer from "./features/people/PersonPage/personPageSlice";
 
 const SagaMiddleware = createSagaMiddleware();
 
