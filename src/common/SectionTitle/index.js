@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const SectionTitle = styled.h1`
-  margin: 24px 0 24px 0;
+  margin: 0 0 24px 0;
   color: ${({ theme }) => theme.colors.woodsmoke};
   font-weight: 600;
   font-size: 36px;
