@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { BigTile } from "../../../common/BigTile";
-import { SectionTitle } from "../../../common/SectionTitle/styled";
+import { SectionTitle } from "../../../common/SectionTitle";
 import { MovieTile } from "../../movies/MovieTile";
 import { ContentContainer, Wrapper } from "./styled";
 import { useParams } from "react-router-dom";
