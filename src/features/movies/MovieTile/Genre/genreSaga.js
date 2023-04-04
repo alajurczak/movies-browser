@@ -12,7 +12,6 @@ function* fetchGenresHandler() {
   try {
     const genres = yield call(getApi, genrePath);
     yield put(fetchGenresSuccess(genres));
-    yield console.log(genres)
   } catch (error) {
     yield put(fetchGenresError());
   }
