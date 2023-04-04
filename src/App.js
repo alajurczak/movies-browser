@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./common/Header";
 import PopularMovies from "./features/movies/MovieList";
-import { Main } from "./common/Main";
 import PeopleList from "./features/people/PeopleList";
 import { PersonPage } from "./features/people/PersonPage";
 import { MoviePage } from "./features/movies/MoviePage";
