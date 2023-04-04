@@ -1,8 +1,8 @@
-import { ProfileImage, Wrapper, Name } from "./styled";
+import { ProfileImage, Wrapper, Name, Character } from "./styled";
 import noPicture from "./images/Picture.png";
 import { imagesBaseUrl } from "../../../ApiPaths";
 
-export const PersonTile = ({ id, profile_path, name }) => {
+export const PersonTile = ({ id, profile_path, name, character, job }) => {
   return (
     <Wrapper key={id}>
       <ProfileImage
@@ -10,6 +10,8 @@ export const PersonTile = ({ id, profile_path, name }) => {
         alt=""
       ></ProfileImage>
       {name && <Name>{name}</Name>}
+      {character && <Character>{character}</Character>}
+      {job && <Character>{job}</Character>}
     </Wrapper>
   );
 };
