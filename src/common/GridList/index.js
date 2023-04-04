@@ -1,7 +1,5 @@
-import styled from "styled-components";
-const mobileMediumBp = ({ theme }) => theme.breakpoints.medium;
+import styled, { css } from "styled-components";
 const mobileMaxBp = ({ theme }) => theme.breakpoints.mobileMax;
-const mobileLargeBp = ({ theme }) => theme.breakpoints.large;
 
 export const GridList = styled.div`
   padding: 0;
@@ -9,20 +7,28 @@ export const GridList = styled.div`
   display: grid;
   gap: 24px;
   justify-content: center;
-  grid-template-columns: repeat(4, 1fr);
   list-style: none;
-
-  @media (max-width: ${mobileLargeBp}px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   @media (max-width: ${mobileMaxBp}px) {
     gap: 16px;
-    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: ${mobileMediumBp}px) {
-    gap: 16px;
-    grid-template-columns: 1fr;
-  } ;
+  ${({ popularPeople }) =>
+    popularPeople &&
+    css`
+      grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+
+      @media (max-width: ${mobileMaxBp}px) {
+        grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
+      }
+    `}
+  ${({ popularMovies }) =>
+    popularMovies &&
+    css`
+      grid-template-columns: repeat(auto-fill, minmax(324px, 1fr));
+
+      @media (max-width: ${mobileMaxBp}px) {
+        grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+      }
+    `}
 `;

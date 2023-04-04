@@ -29,11 +29,10 @@ export const Wrapper = styled.div`
 `;
 
 export const ProfileImage = styled.img`
-  display: flex;
-  justify-content: center;
-  height: auto;
   width: 100%;
+  object-fit: cover;
   border-radius: 5px;
+  aspect-ratio: 3 / 4;
 
   @media (max-width: ${mobileMinBp}px) {
     width: 120px;
@@ -41,16 +40,27 @@ export const ProfileImage = styled.img`
 `;
 
 export const Name = styled.p`
-  margin-top: 16px;
-  margin-bottom: 0;
-  text-align: center;
-  font-weight: 500;
   font-size: 22px;
-  line-height: 130%;
+  font-weight: 500;
+  text-align: center;
+  margin: 12px 0 0 0;
+  color: ${({ theme }) => theme.colors.woodsmoke};
+  word-break: break-word;
 
   @media (max-width: ${mobileMinBp}px) {
-    font-weight: 500;
     font-size: 14px;
-    line-height: 130%;
-  } ;
+    margin: 8px 0 0 0;
+  }
+`;
+
+export const Character = styled.div`
+  font-size: 18px;
+  margin-top: 8px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.waterloo};
+
+  @media (max-width: ${mobileMinBp}px) {
+    font-size: 13px;
+    margin: 8px 0 0 0;
+  }
 `;
