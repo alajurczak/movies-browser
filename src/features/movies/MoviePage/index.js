@@ -3,21 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Container } from "../../../common/Container";
 import {
-  selectMovieDetailsStatus,
+  selectMovieDetailsAndCreditsStatus,
   fetchMovieDetailsLoading,
 } from "./movieSlice";
 import { About } from "./About";
 import { BackgroundPoster } from "./Poster";
 import { Cast } from "./Cast";
 import { Crew } from "./Crew";
-import { Main } from "../../../common/Main/styled";
+import { Main } from "../../../common/Main";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
 
 export const MoviePage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const stateOfLoading = useSelector(selectMovieDetailsStatus);
+  const stateOfLoading = useSelector(selectMovieDetailsAndCreditsStatus);
 
   useEffect(() => {
     dispatch(fetchMovieDetailsLoading(id));
@@ -36,7 +36,7 @@ export const MoviePage = () => {
             <Container>
               <About />
               <Cast />
-              {/* <Crew /> */}
+              <Crew />
             </Container>
           </Main>
         </>

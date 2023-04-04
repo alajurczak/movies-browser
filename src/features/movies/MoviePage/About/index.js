@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { selectMovie } from "../movieSlice";
-import { selectGenres } from "../../MovieTile/Genre/genreSlice";
 import { Rating } from "../Rating";
 import {
   StyledAbout,
@@ -20,8 +19,7 @@ import { DummyActor } from "../../../people/DummyActor";
 
 export const About = () => {
   const movieInfo = useSelector(selectMovie);
-  const genre = useSelector(selectGenres);
-  
+  console.log(selectMovie);
 
   return (
     <StyledAbout>
@@ -43,10 +41,10 @@ export const About = () => {
             <div>
               <ProductionAndRelease>Production:</ProductionAndRelease>
               <CountryNameLong>
-                {movieInfo.production_countries.name}
+                {movieInfo.production_countries[0].name}
               </CountryNameLong>
               <CountryNameShort>
-                {movieInfo.production_countries.iso_3166_1}
+                {movieInfo.production_countries[0].iso_3166_1}
               </CountryNameShort>
             </div>
           )}
@@ -56,7 +54,7 @@ export const About = () => {
           </div>
         </SpecificInfo>
         <Tags>
-          {genre.map((genre) => (
+          {Object.values(movieInfo.genres).map((genre) => (
             <Tag key={genre.id}>{genre.name}</Tag>
           ))}
         </Tags>

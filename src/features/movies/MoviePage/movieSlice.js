@@ -5,30 +5,27 @@ const movieDetailsAndCreditsSlice = createSlice({
   initialState: {
     status: "loading",
     movie: [],
-    movieCast: [],
-    movieCrew: [],
+    cast: [],
+    crew: [],
   },
   reducers: {
     fetchMovieDetailsLoading: () => ({
       status: "loading",
       movie: [],
-      movieCast: [],
-      movieCrew: [],
+      cast: [],
+      crew: [],
     }),
     fetchMovieDetailsError: () => ({
       status: "error",
       movie: [],
-      movieCast: [],
-      movieCrew: [],
+      cast: [],
+      crew: [],
     }),
-    fetchMovieDetailsSuccess: (
-      _,
-      { payload: { movie, movieCast, movieCrew } }
-    ) => ({
+    fetchMovieDetailsSuccess: (_, { payload: { movie, movieCredits } }) => ({
       status: "success",
       movie: movie,
-      movieCast: movieCast,
-      movieCrew: movieCrew,
+      cast: movieCredits.cast,
+      crew: movieCredits.crew,
     }),
   },
 });
@@ -42,13 +39,13 @@ export const {
 const selectMovieDetailsAndCreditsState = (state) =>
   state.movieDetailsAndCredits;
 
-export const selectMovieDetailsStatus = (state) =>
+export const selectMovieDetailsAndCreditsStatus = (state) =>
   selectMovieDetailsAndCreditsState(state).status;
 export const selectMovie = (state) =>
   selectMovieDetailsAndCreditsState(state).movie;
 export const selectMovieCast = (state) =>
-  selectMovieDetailsAndCreditsState(state).movieCast;
+  selectMovieDetailsAndCreditsState(state).cast;
 export const selectMovieCrew = (state) =>
-  selectMovieDetailsAndCreditsState(state).movieCrew;
+  selectMovieDetailsAndCreditsState(state).crew;
 
 export default movieDetailsAndCreditsSlice.reducer;

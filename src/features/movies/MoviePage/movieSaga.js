@@ -12,12 +12,12 @@ function* fetchMovieDetailsAndCreditsHandler({ payload: id }) {
   const creditsPath = `${baseUrl}movie/${id}/credits${apiKey}${language}`;
   try {
     yield delay(1000);
-    const [movie, movieDetails] = yield all([
+    const [movie, movieCredits] = yield all([
       call(getApi, moviePath),
       call(getApi, creditsPath),
     ]);
-    yield put(fetchMovieDetailsSuccess({ movie, movieDetails }));
-    yield console.log({ movie, movieDetails });
+    yield put(fetchMovieDetailsSuccess({ movie, movieCredits }));
+    yield console.log({ movie, movieCredits });
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }

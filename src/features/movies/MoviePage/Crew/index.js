@@ -1,49 +1,34 @@
-// import { useSelector, useDispatch } from "react-redux";
-// import { useEffect } from "react";
-// import { selectMovieCredits } from "../movieSlice";
-// import {
-//   selectPersonData,
-//   fetchPersonDataLoading,
-// } from "../../../people/ActorTile/personSlice";
-// import { GridList } from "../../../../common/GridList";
-// import { SectionTitle } from "../../../../common/SectionTitle/styled";
-// import { CrewTile, CrewImage, CrewName, CrewRole } from "./styled";
-// import { imagesBaseUrl } from "../../../../ApiPaths";
+import { useSelector } from "react-redux";
+import { selectMovieCrew } from "../movieSlice";
+import { SectionTitle } from "../../../../common/SectionTitle";
+import { PersonTile } from "../../../people/PersonTile";
+import { Container } from "../../../../common/Container";
+import { GridList } from "../../../../common/GridList";
+import { StyledLink } from "../../../people/PeopleList/styled";
 
-// const Crew = () => {
-//   const movieCrew = useSelector(selectMovieCredits);
-//   const person = useSelector(selectPersonData);
-//   const dispatch = useDispatch();
+export const Crew = () => {
+  const cast = useSelector(selectMovieCrew);
 
-//   useEffect(() => {
-//     dispatch(fetchPersonDataLoading());
-//   }, [dispatch]);
-
-//   return (
-//     <section>
-//       <SectionTitle as="h2" detailsPage>
-//         Crew
-//       </SectionTitle>
-//       <GridList popularPeople>
-//         <li key={movieCrew.cast_id}>
-//           <CrewTile>
-//             <CrewImage
-//               src={
-//                 person.profile_path
-//                   ? `${imagesBaseUrl}/w342${
-//                       person.profileSizes ? person.profileSizes[1] : ""
-//                     }${person.profile_path}`
-//                   : person.noProfile
-//               }
-//               alt=""
-//             />
-//             <CrewName>{movieCrew.name}</CrewName>
-//             <CrewRole>{movieCrew.role}</CrewRole>
-//           </CrewTile>
-//         </li>
-//       </GridList>
-//     </section>
-//   );
-// };
-
-// export default Crew;
+  return (
+    <Container>
+      <section>
+        <SectionTitle>Cast</SectionTitle>
+        {cast && cast.length > 0 && (
+          <GridList popularPeople>
+            {cast.map(({ profile_path, id, name, credit_id, job }) => (
+              <StyledLink to={`/profile/${id}`}>
+                <PersonTile
+                  key={id}
+                  id={credit_id}
+                  profile_path={profile_path}
+                  name={name}
+                  job={job}
+                />
+              </StyledLink>
+            ))}
+          </GridList>
+        )}
+      </section>
+    </Container>
+  );
+};
