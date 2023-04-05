@@ -57,7 +57,7 @@ export const PersonPage = () => {
             )
           )}
 
-          {cast.length > 0 && (
+          {cast && cast.length > 0 && (
             <>
               <StyledLink to={`/movie/${id}`}>
                 <SectionTitle>
@@ -82,8 +82,8 @@ export const PersonPage = () => {
                         key={credit_id}
                         id={id}
                         title={title}
-                        rating={vote_average}
-                        votes={vote_count}
+                        vote_average={vote_average}
+                        vote_count={vote_count}
                         poster_path={poster_path}
                         genre_ids={genre_ids}
                         character={character}
@@ -96,7 +96,7 @@ export const PersonPage = () => {
             </>
           )}
 
-          {crew.length > 0 && (
+          {crew && crew.length > 0 && (
             <>
               <StyledLink to={`/movie/${id}`}>
                 <SectionTitle>
@@ -121,8 +121,8 @@ export const PersonPage = () => {
                         key={credit_id}
                         id={id}
                         title={title}
-                        rating={vote_average}
-                        votes={vote_count}
+                        vote_average={vote_average}
+                        vote_count={vote_count}
                         job={job}
                         year={release_date}
                         poster_path={poster_path}

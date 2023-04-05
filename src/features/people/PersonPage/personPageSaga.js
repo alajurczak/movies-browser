@@ -17,6 +17,7 @@ function* fetchPersonPageHandler({ payload: id }) {
       call(getApi, detailsPath),
     ]);
     yield put(fetchPersonPageSuccess({ person, details }));
+    console.log({ person, details });
   } catch (error) {
     yield put(fetchPersonPageError());
   }
