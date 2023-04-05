@@ -85,7 +85,7 @@ export const VoteAmount = styled.span`
 
 export const MaxVote = styled.span`
   font-size: 14px;
-  
+
   @media (max-width: ${mobileMaxBp}px) {
     display: none;
   }

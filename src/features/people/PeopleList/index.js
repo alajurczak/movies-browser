@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle";
 import { StyledLink } from "./styled";
@@ -7,8 +9,6 @@ import {
   selectPopularPeople,
   selectPopularPeopleStatus,
 } from "../popularPeopleSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
 import { GridList } from "../../../common/GridList";
@@ -32,24 +32,24 @@ const PopularPeople = () => {
       ) : (
         <Main>
           <Container>
-          <section>
-            <SectionTitle>Popular People</SectionTitle>
-            {people && people.length > 0 && (
-              <GridList popularPeople>
-                {people.map(({ profile_path, id, name }) => (
-                  <StyledLink to={`/profile/${id}`}>
-                    <PersonTile
-                      key={id}
-                      id={id}
-                      profile_path={profile_path}
-                      name={name}
-                    />
-                  </StyledLink>
-                ))}
-              </GridList>
-            )}
-          </section>
-        </Container>
+            <section>
+              <SectionTitle>Popular People</SectionTitle>
+              {people && people.length > 0 && (
+                <GridList popularPeople>
+                  {people.map(({ profile_path, id, name }) => (
+                    <StyledLink to={`/profile/${id}`}>
+                      <PersonTile
+                        key={id}
+                        id={id}
+                        profile_path={profile_path}
+                        name={name}
+                      />
+                    </StyledLink>
+                  ))}
+                </GridList>
+              )}
+            </section>
+          </Container>
         </Main>
       )}
     </>
