@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { BigTile } from "../../../common/BigTile";
 import { SectionTitle } from "../../../common/SectionTitle";
 import { MovieTile } from "../../movies/MovieTile";
 import { ContentContainer, Wrapper } from "./styled";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { StyledLink } from "../PeopleList/styled";
 import {
   fetchPersonPageLoading,
   selectCast,
@@ -58,75 +59,79 @@ export const PersonPage = () => {
 
           {cast.length > 0 && (
             <>
-              <SectionTitle>
-                Movies - cast {`(`}
-                {cast.length}
-                {`)`}
-              </SectionTitle>
-              <ContentContainer>
-                {cast.map(
-                  ({
-                    poster_path,
-                    id,
-                    credit_id,
-                    title,
-                    character,
-                    release_date,
-                    vote_average,
-                    vote_count,
-                    genre_ids,
-                  }) => (
-                    <MovieTile
-                      key={credit_id}
-                      id={id}
-                      title={title}
-                      rating={vote_average}
-                      votes={vote_count}
-                      poster_path={poster_path}
-                      genre_ids={genre_ids}
-                      character={character}
-                      year={release_date}
-                    />
-                  )
-                )}
-              </ContentContainer>
+              <StyledLink to={`/movie/${id}`}>
+                <SectionTitle>
+                  Movies - cast {`(`}
+                  {cast.length}
+                  {`)`}
+                </SectionTitle>
+                <ContentContainer>
+                  {cast.map(
+                    ({
+                      poster_path,
+                      id,
+                      credit_id,
+                      title,
+                      character,
+                      release_date,
+                      vote_average,
+                      vote_count,
+                      genre_ids,
+                    }) => (
+                      <MovieTile
+                        key={credit_id}
+                        id={id}
+                        title={title}
+                        rating={vote_average}
+                        votes={vote_count}
+                        poster_path={poster_path}
+                        genre_ids={genre_ids}
+                        character={character}
+                        year={release_date}
+                      />
+                    )
+                  )}
+                </ContentContainer>
+              </StyledLink>
             </>
           )}
 
           {crew.length > 0 && (
             <>
-              <SectionTitle>
-                Movies - crew {`(`}
-                {crew.length}
-                {`)`}
-              </SectionTitle>
-              <ContentContainer>
-                {crew.map(
-                  ({
-                    job,
-                    title,
-                    vote_average,
-                    vote_count,
-                    release_date,
-                    poster_path,
-                    id,
-                    credit_id,
-                    genre_ids,
-                  }) => (
-                    <MovieTile
-                      key={credit_id}
-                      id={id}
-                      title={title}
-                      rating={vote_average}
-                      votes={vote_count}
-                      job={job}
-                      year={release_date}
-                      poster_path={poster_path}
-                      genre_ids={genre_ids}
-                    />
-                  )
-                )}
-              </ContentContainer>
+              <StyledLink to={`/movie/${id}`}>
+                <SectionTitle>
+                  Movies - crew {`(`}
+                  {crew.length}
+                  {`)`}
+                </SectionTitle>
+                <ContentContainer>
+                  {crew.map(
+                    ({
+                      job,
+                      title,
+                      vote_average,
+                      vote_count,
+                      release_date,
+                      poster_path,
+                      id,
+                      credit_id,
+                      genre_ids,
+                    }) => (
+                      <MovieTile
+                        key={credit_id}
+                        id={id}
+                        title={title}
+                        rating={vote_average}
+                        votes={vote_count}
+                        job={job}
+                        year={release_date}
+                        poster_path={poster_path}
+                        genre_ids={genre_ids}
+                      />
+                    )
+                  )}
+                </ContentContainer>
+              </StyledLink>
             </>
           )}
         </Wrapper>
