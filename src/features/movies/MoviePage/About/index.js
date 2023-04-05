@@ -35,7 +35,7 @@ export const About = () => {
         <Name as={`${movieInfo.backdrop_path ? "h2" : "h1"}`}>
           {movieInfo.title}
         </Name>
-        <ReleaseYear>{movieInfo.release_date?.slice(0, 4)}</ReleaseYear>
+        <ReleaseYear>{movieInfo.release_date.slice(0, 4)}</ReleaseYear>
         <SpecificInfo>
           {movieInfo.production_countries && (
             <div>
@@ -50,7 +50,7 @@ export const About = () => {
           )}
           <div>
             <ProductionAndRelease>Release date:</ProductionAndRelease>
-            {movieInfo.release_date}
+            {movieInfo.release_date.replaceAll("-", ".")}
           </div>
         </SpecificInfo>
         <Tags>
