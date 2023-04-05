@@ -5,8 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: block;
   transition: 0.5s;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
