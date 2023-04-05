@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "./images/Star.svg";
 const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 const largeBp = ({ theme }) => theme.breakpoints.large;
 
@@ -101,93 +100,6 @@ export const Information = styled.p`
   @media (max-width: ${mobileBp}px) {
     font-size: 12px;
     line-height: 130%;
-  }
-`;
-
-export const GenreWrapper = styled.div`
-  margin-top: 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  @media (max-width: ${largeBp}px) {
-    gap: 8px;
-  }
-`;
-export const GenreTile = styled.div`
-  padding: 8px 16px;
-  margin-right: 16px;
-  background-color: ${({ theme }) => theme.colors.mystic};
-  border-radius: 5px;
-  font-size: 14px;
-  line-height: 100%;
-
-  @media (max-width: ${mobileBp}px) {
-    font-size: 10px;
-    line-height: 110%;
-    margin: 0px;
-    padding: 4px 8px;
-    line-height: 110%;
-  }
-`;
-export const VotesWrapper = styled.div`
-  display: flex;
-  align-items: center;
-
-  @media (max-width: ${mobileBp}px) {
-    margin-top: 10px;
-  }
-`;
-
-export const RatesWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 24px 0;
-  line-height: 100%;
-
-  @media (max-width: ${mobileBp}px) {
-    margin: 12px 0;
-    margin: 0px;
-  }
-`;
-
-export const StarIcon = styled(Star)`
-  height: auto;
-  width: 24px;
-
-  @media (max-width: ${mobileBp}px) {
-    width: 16px;
-  }
-`;
-
-export const ActualRating = styled.p`
-  margin: 0 8px;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 130%;
-
-  @media (max-width: ${mobileBp}px) {
-    font-size: 16px;
-  }
-`;
-export const MaxRating = styled.p`
-  margin: 0 12px 0 0;
-  line-height: 120%;
-  font-size: 14px;
-
-  @media (max-width: ${mobileBp}px) {
-    display: none;
-  }
-`;
-
-export const Votes = styled.p`
-  margin: 0;
-  line-height: 120%;
-  font-size: 14px;
-
-  @media (max-width: ${mobileBp}px) {
-    font-size: 13px;
-    line-height: 130%;
-    color: ${({ theme }) => theme.colors.waterloo};
   }
 `;
 

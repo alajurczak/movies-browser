@@ -7,31 +7,17 @@ import {
   Wrapper,
   SubTitle,
   Information,
-  GenreWrapper,
-  GenreTile,
-  VotesWrapper,
-  RatesWrapper,
-  ActualRating,
-  MaxRating,
-  Votes,
   TileArticle,
-  StarIcon,
 } from "./styled";
-import poster from "./images/poster.png";
 import { imagesBaseUrl } from "../../ApiPaths";
-import { useEffect, useState } from "react";
 
 export const BigTile = ({
-  poster_path,
   title,
   release_date,
   place_of_birth,
   birthday,
-  rating,
-  votes,
   countries,
   article,
-  genre_ids,
   profile_path,
 }) => {
   const dateOfRelease = new Date(release_date);
@@ -96,19 +82,3 @@ export const BigTile = ({
     </Container>
   );
 };
-
-// do dodania dla movies
-/*
-<GenreWrapper>
-   <GenreTile>Action</GenreTile>
-   <GenreTile>Adventure</GenreTile>
-   <GenreTile>Drama</GenreTile>
- </GenreWrapper>
- <VotesWrapper>
-   <RatesWrapper>
-     <StarIcon />
-     <ActualRating>7,8</ActualRating>
-     <MaxRating>/10</MaxRating>
-   </RatesWrapper>
-   <Votes>335 votes</Votes>
- </VotesWrapper> */
