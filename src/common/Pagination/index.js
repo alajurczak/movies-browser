@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   PageCounter,
   ButtonText,
@@ -9,21 +7,8 @@ import {
   Button,
   ArrowIconNext,
 } from "./styled";
-import {
-  fetchMoviesLoading,
-  selectTotalPages,
-} from "../../features/movies/MovieTile/popularMoviesSlice";
 
-export const Pagination = () => {
-  const dispatch = useDispatch();
-
-  const [page, setPage] = useState(1);
-  const totalPages = useSelector(selectTotalPages);
-
-  useEffect(() => {
-    dispatch(fetchMoviesLoading(page));
-  }, [dispatch, page]);
-
+export const Pagination = ({ totalPages, page, setPage }) => {
   return (
     <Wrapper>
       <Button disabled={page === 1} onClick={() => setPage(1)}>
