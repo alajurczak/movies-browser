@@ -19,7 +19,6 @@ import { DummyActor } from "../../../people/DummyActor";
 
 export const About = () => {
   const movieInfo = useSelector(selectMovie);
-  console.log(selectMovie);
 
   return (
     <StyledAbout>

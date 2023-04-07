@@ -17,7 +17,6 @@ function* fetchMovieDetailsAndCreditsHandler({ payload: id }) {
       call(getApi, creditsPath),
     ]);
     yield put(fetchMovieDetailsSuccess({ movie, movieCredits }));
-    yield console.log({ movie, movieCredits });
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }
