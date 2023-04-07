@@ -59,7 +59,7 @@ export const PersonPage = () => {
 
           {cast && cast.length > 0 && (
             <>
-              <StyledLink to={`/movie/${id}`}>
+              <StyledLink to={`/movies/${id}`}>
                 <SectionTitle>
                   Movies - cast {`(`}
                   {cast.length}
@@ -98,7 +98,7 @@ export const PersonPage = () => {
 
           {crew && crew.length > 0 && (
             <>
-              <StyledLink to={`/movie/${id}`}>
+              <StyledLink to={`/movies/${id}`}>
                 <SectionTitle>
                   Movies - crew {`(`}
                   {crew.length}

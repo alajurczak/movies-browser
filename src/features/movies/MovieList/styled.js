@@ -11,6 +11,7 @@ export const MovieList = styled.div`
   gap: 24px;
   justify-content: center;
   grid-template-columns: repeat(4, 1fr);
+  list-style: none;
 
   @media (max-width: ${mobileLargeBp}px) {
     grid-template-columns: repeat(3, 1fr);

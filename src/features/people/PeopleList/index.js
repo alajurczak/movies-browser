@@ -33,18 +33,19 @@ const PopularPeople = () => {
         <Main>
           <Container>
             <section>
-              <SectionTitle>Popular People</SectionTitle>
+              <SectionTitle peopleList>Popular People</SectionTitle>
               {people && people.length > 0 && (
                 <GridList popularPeople>
                   {people.map(({ profile_path, id, name }) => (
-                    <StyledLink to={`/profile/${id}`}>
-                      <PersonTile
-                        key={id}
-                        id={id}
-                        profile_path={profile_path}
-                        name={name}
-                      />
-                    </StyledLink>
+                    <li key={id}>
+                      <StyledLink to={`/people/${id}`}>
+                        <PersonTile
+                          id={id}
+                          profile_path={profile_path}
+                          name={name}
+                        />
+                      </StyledLink>
+                    </li>
                   ))}
                 </GridList>
               )}

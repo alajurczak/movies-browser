@@ -16,15 +16,16 @@ export const Crew = () => {
         {cast && cast.length > 0 && (
           <GridList popularPeople>
             {cast.map(({ profile_path, id, name, credit_id, job }) => (
-              <StyledLink to={`/profile/${id}`}>
-                <PersonTile
-                  key={id}
-                  id={credit_id}
-                  profile_path={profile_path}
-                  name={name}
-                  job={job}
-                />
-              </StyledLink>
+              <li key={credit_id}>
+                <StyledLink to={`/people/${id}`}>
+                  <PersonTile
+                    id={credit_id}
+                    profile_path={profile_path}
+                    name={name}
+                    job={job}
+                  />
+                </StyledLink>
+              </li>
             ))}
           </GridList>
         )}
