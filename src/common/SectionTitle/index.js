@@ -22,4 +22,24 @@ export const SectionTitle = styled.h2`
         margin: 24px 0 16px;
       }
     `}
+
+  ${({ peopleList }) =>
+    peopleList &&
+    css`
+      margin: 0 0 24px;
+
+      @media (max-width: ${mobileBp}px) {
+        margin: 0 0 16px;
+      }
+    `}
+
+    ${({ movieList }) =>
+    movieList &&
+    css`
+      margin: 0 0 24px;
+
+      @media (max-width: ${mobileBp}px) {
+        margin: 0 0 16px;
+      }
+    `}
 `;
