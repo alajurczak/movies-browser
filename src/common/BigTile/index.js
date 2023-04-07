@@ -7,34 +7,19 @@ import {
   Wrapper,
   SubTitle,
   Information,
-  GenreWrapper,
-  GenreTile,
-  VotesWrapper,
-  RatesWrapper,
-  ActualRating,
-  MaxRating,
-  Votes,
   TileArticle,
-  StarIcon,
 } from "./styled";
-import poster from "./images/poster.png";
 import { imagesBaseUrl } from "../../ApiPaths";
-import { useEffect, useState } from "react";
 
 export const BigTile = ({
-  poster_path,
   title,
   release_date,
   place_of_birth,
   birthday,
-  rating,
-  votes,
   countries,
   article,
-  genre_ids,
   profile_path,
 }) => {
-
   const dateOfRelease = new Date(release_date);
   const dayOfBirth = new Date(birthday);
 
@@ -46,7 +31,7 @@ export const BigTile = ({
 
       <Content>
         {title && <Title>{title}</Title>}
-        {release_date && <Year>{(release_date).slice(0, 4)}</Year>}
+        {release_date && <Year>{release_date.slice(0, 4)}</Year>}
         <>
           {countries && release_date ? (
             <>
@@ -54,11 +39,10 @@ export const BigTile = ({
                 countries.length > 0 ? (
                   <Wrapper>
                     <SubTitle>Production:</SubTitle>
-                    <Information>{countries.map(country => (
-                      <>
-                        {country.name}
-                      </>
-                    ))}
+                    <Information>
+                      {countries.map((country) => (
+                        <>{country.name}</>
+                      ))}
                     </Information>
                   </Wrapper>
                 ) : null
@@ -66,7 +50,9 @@ export const BigTile = ({
               {release_date ? (
                 <Wrapper>
                   <SubTitle>Release date:</SubTitle>
-                  <Information>{dateOfRelease.toLocaleDateString('pl-PL')}</Information>
+                  <Information>
+                    {dateOfRelease.toLocaleDateString("pl-PL")}
+                  </Information>
                 </Wrapper>
               ) : null}
             </>
@@ -77,7 +63,9 @@ export const BigTile = ({
               {birthday && (
                 <Wrapper>
                   <SubTitle>Date of birth:</SubTitle>
-                  <Information>{dayOfBirth.toLocaleDateString('pl-PL')}</Information>
+                  <Information>
+                    {dayOfBirth.toLocaleDateString("pl-PL")}
+                  </Information>
                 </Wrapper>
               )}
               {place_of_birth && (
@@ -90,25 +78,7 @@ export const BigTile = ({
           ) : null}
         </>
       </Content>
-      <TileArticle>
-        {article}
-      </TileArticle>
+      <TileArticle>{article}</TileArticle>
     </Container>
   );
 };
-
-// do dodania dla movies
-/*
-<GenreWrapper>
-   <GenreTile>Action</GenreTile>
-   <GenreTile>Adventure</GenreTile>
-   <GenreTile>Drama</GenreTile>
- </GenreWrapper>
- <VotesWrapper>
-   <RatesWrapper>
-     <StarIcon />
-     <ActualRating>7,8</ActualRating>
-     <MaxRating>/10</MaxRating>
-   </RatesWrapper>
-   <Votes>335 votes</Votes>
- </VotesWrapper> */

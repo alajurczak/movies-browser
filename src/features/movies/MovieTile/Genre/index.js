@@ -1,6 +1,6 @@
-import { GenreTag, GenreWrapper } from "./styled";
 import { useSelector } from "react-redux";
 import { selectGenres } from "./genreSlice";
+import { GenreTag, GenreWrapper } from "./styled";
 
 export const Genre = ({ genre_ids }) => {
   const genres = useSelector(selectGenres);

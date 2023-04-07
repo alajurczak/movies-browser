@@ -4,8 +4,8 @@ import {
   fetchMoviesError,
   fetchMoviesLoading,
 } from "./popularMoviesSlice";
-import { getApi } from "../../getApi";
-import { baseUrl, apiKey, language } from "../../ApiPaths";
+import { getApi } from "../../../getApi";
+import { baseUrl, apiKey, language } from "../../../ApiPaths";
 
 function* fetchPopularMoviesHandler({ payload: page }) {
   try {

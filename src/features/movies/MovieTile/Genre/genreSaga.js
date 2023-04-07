@@ -8,11 +8,9 @@ import {
 } from "./genreSlice";
 
 function* fetchGenresHandler() {
+  const genrePath = `${baseUrl}/genre/movie/list${apiKey}${language}`;
   try {
-    const genres = yield call(
-      getApi,
-      `${baseUrl}/genre/movie/list${apiKey}${language}`
-    );
+    const genres = yield call(getApi, genrePath);
     yield put(fetchGenresSuccess(genres));
   } catch (error) {
     yield put(fetchGenresError());

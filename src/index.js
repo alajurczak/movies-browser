@@ -12,7 +12,7 @@ import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-<HashRouter>
+  <HashRouter>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <React.StrictMode>
@@ -22,7 +22,7 @@ root.render(
         </React.StrictMode>
       </ThemeProvider>
     </Provider>
-</HashRouter>
+  </HashRouter>
 );
 
 reportWebVitals();

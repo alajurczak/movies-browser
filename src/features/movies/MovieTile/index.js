@@ -17,12 +17,11 @@ export const MovieTile = ({
   id,
   title,
   poster_path,
-  rating,
-  votes,
+  vote_average,
+  vote_count,
   release_date,
   genre_ids,
 }) => {
-
   return (
     <TileWrapper key={id} id={id}>
       <ImageWrapper
@@ -31,15 +30,19 @@ export const MovieTile = ({
       ></ImageWrapper>
       <DescriptionWrapper>
         {title && <Title>{title}</Title>}
-        {release_date && <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>}
+        {release_date && (
+          <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>
+        )}
         {genre_ids && <Genre genre_ids={genre_ids} />}
-        {rating && votes ? (
+        {vote_average && vote_count ? (
           <RatingWrapper>
             <Star />
-            <Rate>{rating}</Rate>
-            <Votes>{votes} votes</Votes>
+            <Rate>{vote_average}</Rate>
+            <Votes>{vote_count} votes</Votes>
           </RatingWrapper>
-        ) : (<Star />)}
+        ) : (
+          <Star />
+        )}
       </DescriptionWrapper>
     </TileWrapper>
   );
