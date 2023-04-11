@@ -59,7 +59,7 @@ export const PersonPage = () => {
 
           {cast && cast.length > 0 && (
             <>
-              <SectionTitle>
+              <SectionTitle detailsPage>
                 Movies - cast {`(`}
                 {cast.length}
                 {`)`}

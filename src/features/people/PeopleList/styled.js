@@ -35,5 +35,8 @@ export const PeopleList = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  display: block;
+  text-align: center;
+  height: 100%;
   color: ${({ theme }) => theme.colors.black};
 `;

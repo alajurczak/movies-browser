@@ -3,15 +3,16 @@ const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 const largeBp = ({ theme }) => theme.breakpoints.large;
 
 export const Container = styled.div`
-  max-width: 1368px;
-  margin: 0px 16px 64px;
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 40px;
-  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   display: grid;
-  gap: 0 40px;
-  grid-template-columns: minmax(auto, 312px) 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: minmax(116px, 399px) auto;
+  grid-template-areas:
+    "i h"
+    "i b"
+    "i p";
+  padding: 40px;
+  column-gap: 40px;
+  margin: 56px 0 0 0;
 
   @media (max-width: ${largeBp}px) {
     gap: 20px 28px;
@@ -27,8 +28,8 @@ export const Container = styled.div`
 `;
 
 export const Poster = styled.img`
-  width: 312px;
-  height: 464px;
+  width: 100%;
+  display: block;
   border-radius: 5px;
   grid-row: span 2;
 

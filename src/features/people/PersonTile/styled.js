@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
 
-export const Wrapper = styled.div`
-  width: 100%;
+export const Wrapper = styled(Link)`
   height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   display: block;
   transition: 0.5s;
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
   padding: 16px;
+  color: ${({ theme }) => theme.colors.black};
 
   &:hover {
     cursor: pointer;
@@ -22,8 +25,8 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: ${mobileMinBp}px) {
-    padding: 8px;
     width: 138px;
+    padding: 8px;
   } ;
 `;
 
