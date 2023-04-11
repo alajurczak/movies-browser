@@ -10,6 +10,7 @@ import {
   TileArticle,
 } from "./styled";
 import { imagesBaseUrl } from "../../ApiPaths";
+import noPoster from "./images/noPoster.png";
 
 export const BigTile = ({
   title,
@@ -26,7 +27,10 @@ export const BigTile = ({
   return (
     <Container>
       {profile_path !== undefined && (
-        <Poster src={`${imagesBaseUrl}/w342${profile_path}`} alt="" />
+        <Poster
+          src={profile_path ? `${imagesBaseUrl}/w342${profile_path}` : noPoster}
+          alt=""
+        />
       )}
 
       <Content>

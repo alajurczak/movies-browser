@@ -43,6 +43,7 @@ export const StyledStarIcon = styled(StarIcon)`
     location === "backgroundPoster" &&
     css`
       width: 40px;
+      height: 38px;
     `}
 `;
 

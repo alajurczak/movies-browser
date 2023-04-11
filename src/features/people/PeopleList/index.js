@@ -38,13 +38,13 @@ const PopularPeople = () => {
                 <GridList popularPeople>
                   {people.map(({ profile_path, id, name }) => (
                     <li key={id}>
-                      <StyledLink to={`/people/${id}`}>
+                      {/* <StyledLink to={`/people/${id}`}> */}
                         <PersonTile
                           id={id}
                           profile_path={profile_path}
                           name={name}
                         />
-                      </StyledLink>
+                      {/* </StyledLink> */}
                     </li>
                   ))}
                 </GridList>

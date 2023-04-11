@@ -5,6 +5,7 @@ const mobileMinBp = ({ theme }) => theme.breakpoints.mobileMin;
 const largeBp = ({ theme }) => theme.breakpoints.large;
 
 export const Wrapper = styled.div`
+  margin: 198px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -7,6 +7,8 @@ export const Wrapper = styled.div`
   max-width: 1368px;
   width: 100%;
   margin: 0 auto;
+  padding: 24px 16px 32px;
+  list-style: none;
 `;
 
 export const ContentContainer = styled.div`
