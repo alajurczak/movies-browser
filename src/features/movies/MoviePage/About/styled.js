@@ -123,6 +123,7 @@ export const Tag = styled.div`
   background: ${({ theme }) => theme.colors.mystic};
   border-radius: 5px;
   font-size: 14px;
+
   @media (max-width: ${mobileMaxBp}px) {
     padding: 4px 8px;
     font-size: 10px;
@@ -136,6 +137,7 @@ export const Description = styled.p`
   grid-column-start: 2;
   grid-row-start: 2;
   grid-area: d;
+  
   @media (max-width: ${mobileMaxBp}px) {
     font-size: 14px;
   }
