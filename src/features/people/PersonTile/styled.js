@@ -6,7 +6,7 @@ export const Wrapper = styled(Link)`
   height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   display: block;
-  transition: 0.5s;
+  transition: all 170ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
   text-align: center;
@@ -16,18 +16,22 @@ export const Wrapper = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.03);
-    box-shadow: 0px 4px 12px ${({ theme }) => theme.colors.scienceBlue};
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 18px 2px #c2d7ff;
   }
 
   &:active {
-    transform: scale(1.05);
+    transform: translateY(-4px);
   }
 
   @media (max-width: ${mobileMinBp}px) {
-    width: 138px;
     padding: 8px;
-  } ;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 `;
 
 export const ProfileImage = styled.img`
@@ -35,10 +39,6 @@ export const ProfileImage = styled.img`
   object-fit: cover;
   border-radius: 5px;
   aspect-ratio: 3 / 4;
-
-  @media (max-width: ${mobileMinBp}px) {
-    width: 120px;
-  } ;
 `;
 
 export const Name = styled.p`
