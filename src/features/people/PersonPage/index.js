@@ -59,25 +59,25 @@ export const PersonPage = () => {
 
           {cast && cast.length > 0 && (
             <>
-              <StyledLink to={`/movies/${id}`}>
-                <SectionTitle>
-                  Movies - cast {`(`}
-                  {cast.length}
-                  {`)`}
-                </SectionTitle>
-                <ContentContainer>
-                  {cast.map(
-                    ({
-                      poster_path,
-                      id,
-                      credit_id,
-                      title,
-                      character,
-                      release_date,
-                      vote_average,
-                      vote_count,
-                      genre_ids,
-                    }) => (
+              <SectionTitle>
+                Movies - cast {`(`}
+                {cast.length}
+                {`)`}
+              </SectionTitle>
+              <ContentContainer>
+                {cast.map(
+                  ({
+                    poster_path,
+                    id,
+                    credit_id,
+                    title,
+                    character,
+                    release_date,
+                    vote_average,
+                    vote_count,
+                    genre_ids,
+                  }) => (
+                    <StyledLink to={`/movies/${id}`}>
                       <MovieTile
                         key={credit_id}
                         id={id}
@@ -89,34 +89,34 @@ export const PersonPage = () => {
                         character={character}
                         year={release_date}
                       />
-                    )
-                  )}
-                </ContentContainer>
-              </StyledLink>
+                    </StyledLink>
+                  )
+                )}
+              </ContentContainer>
             </>
           )}
 
           {crew && crew.length > 0 && (
             <>
-              <StyledLink to={`/movies/${id}`}>
-                <SectionTitle>
-                  Movies - crew {`(`}
-                  {crew.length}
-                  {`)`}
-                </SectionTitle>
-                <ContentContainer>
-                  {crew.map(
-                    ({
-                      job,
-                      title,
-                      vote_average,
-                      vote_count,
-                      release_date,
-                      poster_path,
-                      id,
-                      credit_id,
-                      genre_ids,
-                    }) => (
+              <SectionTitle>
+                Movies - crew {`(`}
+                {crew.length}
+                {`)`}
+              </SectionTitle>
+              <ContentContainer>
+                {crew.map(
+                  ({
+                    job,
+                    title,
+                    vote_average,
+                    vote_count,
+                    release_date,
+                    poster_path,
+                    id,
+                    credit_id,
+                    genre_ids,
+                  }) => (
+                    <StyledLink to={`/movies/${id}`}>
                       <MovieTile
                         key={credit_id}
                         id={id}
@@ -128,10 +128,10 @@ export const PersonPage = () => {
                         poster_path={poster_path}
                         genre_ids={genre_ids}
                       />
-                    )
-                  )}
-                </ContentContainer>
-              </StyledLink>
+                    </StyledLink>
+                  )
+                )}
+              </ContentContainer>
             </>
           )}
         </Wrapper>
