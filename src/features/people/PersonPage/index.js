@@ -77,19 +77,21 @@ export const PersonPage = () => {
                     vote_count,
                     genre_ids,
                   }) => (
-                    <StyledLink to={`/movies/${id}`}>
-                      <MovieTile
-                        key={credit_id}
-                        id={id}
-                        title={title}
-                        vote_average={vote_average}
-                        vote_count={vote_count}
-                        poster_path={poster_path}
-                        genre_ids={genre_ids}
-                        character={character}
-                        year={release_date}
-                      />
-                    </StyledLink>
+                    <li key={credit_id}>
+                      <StyledLink to={`/movies/${id}`}>
+                        <MovieTile
+                          key={credit_id}
+                          id={id}
+                          title={title}
+                          vote_average={vote_average}
+                          vote_count={vote_count}
+                          poster_path={poster_path}
+                          genre_ids={genre_ids}
+                          character={character}
+                          year={release_date}
+                        />
+                      </StyledLink>
+                    </li>
                   )
                 )}
               </ContentContainer>
@@ -116,19 +118,21 @@ export const PersonPage = () => {
                     credit_id,
                     genre_ids,
                   }) => (
-                    <StyledLink to={`/movies/${id}`}>
-                      <MovieTile
-                        key={credit_id}
-                        id={id}
-                        title={title}
-                        vote_average={vote_average}
-                        vote_count={vote_count}
-                        job={job}
-                        year={release_date}
-                        poster_path={poster_path}
-                        genre_ids={genre_ids}
-                      />
-                    </StyledLink>
+                    <li key={credit_id}>
+                      <StyledLink to={`/movies/${id}`}>
+                        <MovieTile
+                          key={credit_id}
+                          id={id}
+                          title={title}
+                          vote_average={vote_average}
+                          vote_count={vote_count}
+                          job={job}
+                          year={release_date}
+                          poster_path={poster_path}
+                          genre_ids={genre_ids}
+                        />
+                      </StyledLink>
+                    </li>
                   )
                 )}
               </ContentContainer>
