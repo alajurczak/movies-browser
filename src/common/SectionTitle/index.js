@@ -19,7 +19,7 @@ export const SectionTitle = styled.h2`
       margin: 64px 0 24px;
 
       @media (max-width: ${mobileBp}px) {
-        margin: 24px 0 12px;
+        margin: 24px 0 16px;
       }
     `}
 

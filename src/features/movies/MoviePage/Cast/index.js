@@ -11,7 +11,7 @@ export const Cast = () => {
   return (
     <Container>
       <section>
-        <SectionTitle>Cast</SectionTitle>
+        <SectionTitle detailsPage>Cast</SectionTitle>
         {cast && cast.length > 0 && (
           <GridList popularPeople>
             {cast.map(({ profile_path, id, name, cast_id, character }) => (
