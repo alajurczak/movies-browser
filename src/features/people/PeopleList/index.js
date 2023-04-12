@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle";
-import { StyledLink } from "./styled";
 import { PersonTile } from "../PersonTile";
 import {
   fetchPeopleLoading,
@@ -38,13 +37,11 @@ const PopularPeople = () => {
                 <GridList popularPeople>
                   {people.map(({ profile_path, id, name }) => (
                     <li key={id}>
-                      {/* <StyledLink to={`/people/${id}`}> */}
-                        <PersonTile
-                          id={id}
-                          profile_path={profile_path}
-                          name={name}
-                        />
-                      {/* </StyledLink> */}
+                      <PersonTile
+                        id={id}
+                        profile_path={profile_path}
+                        name={name}
+                      />
                     </li>
                   ))}
                 </GridList>
