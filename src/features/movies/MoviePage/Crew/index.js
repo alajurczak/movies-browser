@@ -11,7 +11,7 @@ export const Crew = () => {
   return (
     <Container>
       <section>
-        <SectionTitle>Crew</SectionTitle>
+        <SectionTitle detailsPage>Crew</SectionTitle>
         {crew && crew.length > 0 && (
           <GridList popularPeople>
             {crew.map(({ profile_path, id, name, credit_id, job }) => (

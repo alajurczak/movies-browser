@@ -19,27 +19,27 @@ export const SectionTitle = styled.h2`
       margin: 64px 0 24px;
 
       @media (max-width: ${mobileBp}px) {
-        margin: 24px 0 12px;
+        margin: 24px 0 16px;
       }
     `}
 
   ${({ peopleList }) =>
     peopleList &&
     css`
-      margin: 0 0 24px;
+      margin: 64px 0 24px;
 
       @media (max-width: ${mobileBp}px) {
-        margin: 0 0 12px;
+        margin: 24px 0 16px;
       }
     `}
 
     ${({ movieList }) =>
     movieList &&
     css`
-      margin: 0 0 24px;
+      margin: 64px 0 24px;
 
       @media (max-width: ${mobileBp}px) {
-        margin: 0 0 12px;
+        margin: 24px 0 16px;
       }
     `}
 `;
