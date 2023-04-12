@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./common/Header";
 import PopularMovies from "./features/movies/MovieList";
 import PeopleList from "./features/people/PeopleList";
@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<PopularMovies />} />
+        <Route path="/" element={<Navigate to="/movies" />} />
         <Route path="/movies" element={<PopularMovies />} />
         <Route path="/people" element={<PeopleList />} />
         <Route path="/people/:id" element={<PersonPage />} />
