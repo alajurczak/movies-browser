@@ -70,7 +70,10 @@ const PopularMovies = () => {
               )}
             </section>
           </Container>
-          <Pagination totalPages={totalPages} page={page} setPage={setPage} />
+          <Pagination
+            totalPages={totalPages}
+            page={page}
+            setPage={setPage} />
         </Main>
       )}
     </>
