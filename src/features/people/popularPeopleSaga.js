@@ -7,12 +7,12 @@ import {
 import { getApi } from "../../getApi";
 import { apiKey, baseUrl, language } from "../../ApiPaths";
 
-function* fetchPopularPeopleHandler() {
+function* fetchPopularPeopleHandler({ payload: { page } }) {
   try {
     yield delay(1000);
     const people = yield call(
       getApi,
-      `${baseUrl}/person/popular${apiKey}${language}`
+      `${baseUrl}/person/popular${apiKey}${language}&page=${page}`
     );
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
