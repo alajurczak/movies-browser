@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle";
 import { PersonTile } from "../PersonTile";
@@ -7,20 +7,25 @@ import {
   fetchPeopleLoading,
   selectPopularPeople,
   selectPopularPeopleStatus,
+  selectPopularPeopleTotalPages,
 } from "../popularPeopleSlice";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
 import { GridList } from "../../../common/GridList";
 import { Main } from "../../../common/Main";
+import { Pagination } from "../../../common/Pagination";
 
 const PopularPeople = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPopularPeople);
   const stateOfLoading = useSelector(selectPopularPeopleStatus);
 
+  const [page, setPage] = useState(1);
+  const totalPages = useSelector(selectPopularPeopleTotalPages);
+
   useEffect(() => {
-    dispatch(fetchPeopleLoading());
-  }, [dispatch]);
+    dispatch(fetchPeopleLoading({ page }));
+  }, [dispatch, page]);
 
   return (
     <>
@@ -48,6 +53,11 @@ const PopularPeople = () => {
               )}
             </section>
           </Container>
+          <Pagination
+            page={page}
+            setPage={setPage}
+            totalPages={totalPages}
+          />
         </Main>
       )}
     </>
