@@ -37,7 +37,7 @@ const Header = () => {
           <SearchBarIcon>
             <StyledSearchIcon />
           </SearchBarIcon>
-          <SearchBarInput placeholder="Search for movies..." />
+          <SearchBarInput placeholder="Search for movies/people..." />
           {/* temporary placeholder */}
         </SearchBar>
       </GridWrapper>
