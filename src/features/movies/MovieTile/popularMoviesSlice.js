@@ -6,6 +6,8 @@ const popularMoviesSlice = createSlice({
     status: "loading",
     movies: [],
     totalPages: 0,
+    query: "",
+    totalResults: 0,
   },
   reducers: {
     fetchMoviesLoading: (state) => {
@@ -18,6 +20,7 @@ const popularMoviesSlice = createSlice({
       state.status = "success";
       state.movies = movies.results;
       state.totalPages = movies.total_pages;
+      state.totalResults = movies.total_results;
     },
   },
 });
@@ -30,5 +33,6 @@ const selectMoviesState = (state) => state.popularMovies;
 export const selectStatus = (state) => selectMoviesState(state).status;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectTotalPages = (state) => selectMoviesState(state).totalPages;
+export const selectTotalResults = (state) => selectMoviesState(state).totalResults;
 
 export default popularMoviesSlice.reducer;
