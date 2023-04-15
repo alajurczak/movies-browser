@@ -6,6 +6,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 import popularPeopleReducer from "./features/people/popularPeopleSlice";
 import personPageReducer from "./features/people/PersonPage/personPageSlice";
+import searchReducer from "./features/Search/searchSlice";
 
 const SagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +17,7 @@ const store = configureStore({
     movieDetailsAndCredits: movieDetailsAndCreditsReducer,
     popularPeople: popularPeopleReducer,
     personPage: personPageReducer,
+    search: searchReducer,
   },
   middleware: [SagaMiddleware],
 });
