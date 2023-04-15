@@ -7,13 +7,11 @@ import {
   TittleText,
   NavigationList,
   StyledNavLink,
-  SearchBar,
-  SearchBarIcon,
-  SearchBarInput,
-  StyledSearchIcon,
 } from "./styled";
+import { Search } from "../../features/Search";
 
 const Header = () => {
+  
   return (
     <StyledHeader>
       <GridWrapper>
@@ -33,13 +31,7 @@ const Header = () => {
             </NavigationList>
           </nav>
         </Wrapper>
-        <SearchBar>
-          <SearchBarIcon>
-            <StyledSearchIcon />
-          </SearchBarIcon>
-          <SearchBarInput placeholder="Search for movies/people..." />
-          {/* temporary placeholder */}
-        </SearchBar>
+        <Search />
       </GridWrapper>
     </StyledHeader>
   );
