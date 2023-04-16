@@ -35,9 +35,9 @@ export const Search = () => {
                 {location.pathname.includes("people")
                     ? "Search for people..."
                     : "Search for movies..."}
-                value={query}
+                value={query || ""}
                 onChange={onInputChange}
-                debounceTimeout={500}
+                debounceTimeout={300}
             />
         </SearchBar>
     )
