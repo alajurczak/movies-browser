@@ -1,20 +1,18 @@
 import { SearchBar, SearchBarIcon, StyledSearchIcon, SearchBarInput } from "./styled";
 import { useDispatch } from "react-redux";
 import { fetchSearch } from "./searchSlice";
-import useQueryParameter from "../../useQueryParameter";
+import useQueryParameter, { searchQueryParamName } from "../../useQueryParameter";
 import { useReplaceQueryParameter } from "../../useReplaceQueryParameter";
 import { useLocation } from "react-router-dom";
 
 export const Search = () => {
     const dispatch = useDispatch();
     const location = useLocation();
-
-    const query = useQueryParameter("search");
+    const query = useQueryParameter(searchQueryParamName);
     const replaceQueryParam = useReplaceQueryParameter();
 
     const onInputChange = ({ target }) => {
         replaceQueryParam({
-            key: "search",
             value: target.value.trim(),
         });
     };

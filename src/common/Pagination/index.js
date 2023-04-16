@@ -1,3 +1,5 @@
+import { searchQueryParamName } from "../../useQueryParameter";
+import { useSearchParams } from "react-router-dom";
 import {
   PageCounter,
   ButtonText,
@@ -7,48 +9,70 @@ import {
   Button,
   ArrowIconNext,
 } from "./styled";
-import { useNavigate } from "react-router-dom";
 
-export const Pagination = ({ totalPages, page, setPage }) => {
-  const navigate = useNavigate();
-  const setPageAndUpdateUrl = (pageNumber) => {
-    setPage(pageNumber);
-    navigate(`?page=${pageNumber}`);
+export const Pagination = ({ location, totalPages }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const query = searchParams.get(searchQueryParamName);
+  const totalPage = totalPages > 500 ? 500 : totalPages;
+
+  const onGoToFirst = () => {
+    if (currentPage !== 1) {
+      query
+        ? setSearchParams({ [searchQueryParamName]: query, page: 1 })
+        : setSearchParams({ page: 1 });
+    }
   };
 
+  const onGoToPrevious = () => {
+    if (currentPage !== 1) {
+      const previousPage = currentPage - 1;
+
+      query
+        ? setSearchParams({ [searchQueryParamName]: query, page: previousPage })
+        : setSearchParams({ page: previousPage });
+    }
+  };
+
+  const onGoToNext = () => {
+    if (currentPage !== totalPages) {
+      const nextPage = currentPage + 1;
+
+      query
+        ? setSearchParams({ [searchQueryParamName]: query, page: nextPage })
+        : setSearchParams({ page: nextPage });
+    }
+  };
+
+  const onGoToLast = () => {
+    if (currentPage !== totalPage) {
+      query
+        ? setSearchParams({ [searchQueryParamName]: query, page: totalPage })
+        : setSearchParams({ page: totalPage });
+    }
+  };
   return (
-    <Wrapper>
-      <Button disabled={page === 1} onClick={() => setPageAndUpdateUrl(1)}>
+    <Wrapper location={location}>
+      <Button disabled={currentPage <= 1} onClick={onGoToFirst}>
         <ArrowIconPrevious mobile="true" />
         <ArrowIconPrevious />
         <ButtonText>First</ButtonText>
       </Button>
-      <Button
-        disabled={page === 1}
-        onClick={() => setPageAndUpdateUrl(page - 1)}
-      >
+      <Button disabled={currentPage <= 1} onClick={onGoToPrevious}>
         <ArrowIconPrevious />
         <ButtonText>Previous</ButtonText>
       </Button>
       <PageCounter>
         Page
-        <PageNumbers>{page}</PageNumbers>
+        <PageNumbers>{currentPage}</PageNumbers>
         of
-        <PageNumbers>{totalPages > 500 ? 500 : totalPages}</PageNumbers>
+        <PageNumbers>{totalPage}</PageNumbers>
       </PageCounter>
-      <Button
-        next
-        disabled={page === (totalPages > 500 ? 500 : totalPages)}
-        onClick={() => setPageAndUpdateUrl(page + 1)}
-      >
+      <Button disabled={currentPage >= totalPages} onClick={onGoToNext}>
         <ButtonText>Next</ButtonText>
         <ArrowIconNext />
       </Button>
-      <Button
-        next
-        disabled={page === (totalPages > 500 ? 500 : totalPages)}
-        onClick={() => setPageAndUpdateUrl(totalPages > 500 ? 500 : totalPages)}
-      >
+      <Button disabled={currentPage >= totalPages} onClick={onGoToLast}>
         <ButtonText>Last</ButtonText>
         <ArrowIconNext />
         <ArrowIconNext mobile="true" />

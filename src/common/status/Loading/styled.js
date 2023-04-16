@@ -6,6 +6,8 @@ const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 1368px;
+  margin: auto;
 `;
 
 export const Header = styled.h1`
