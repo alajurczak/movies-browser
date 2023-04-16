@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { BigTile } from "../../../common/BigTile";
 import { SectionTitle } from "../../../common/SectionTitle";
@@ -25,10 +25,17 @@ export const PersonPage = () => {
   const person = useSelector(selectPerson);
   const stateOfLoading = useSelector(selectPersonPageStatus);
 
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("search");
+
   useEffect(() => {
     dispatch(fetchPersonPageLoading(id));
     dispatch(fetchGenres());
-  }, [dispatch, id]);
+    if (query) {
+      navigate(`/people?${"search"}=${query}`);
+    }
+  }, [dispatch, id, query, navigate]);
   return (
     <>
       {stateOfLoading === "loading" ? (
