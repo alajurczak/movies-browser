@@ -4,16 +4,15 @@ export const searchSlice = createSlice({
     name: "search",
     initialState: {
         status: "loading",
-        movies: [],
         query: "",
         totalResults: 0,
     },
     reducers: {
         fetchSearch: () => ({}),
-        fetchSearchSuccess: (state, { payload: movies }) => ({
+        fetchSearchSuccess: (state, { payload: search }) => ({
             status: "succes",
-            movies: movies.results,
-            totalResults: movies.total_results,
+            movies: search.results,
+            totalResults: search.total_results,
         }),
         fetchSearchError: () => ({
             status: "error",
