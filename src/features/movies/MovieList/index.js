@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MovieList, StyledLink } from "./styled";
 import { Container } from "../../../common/Container";
@@ -17,16 +17,19 @@ import {
 import { selectTotalPages } from "../../../features/movies/MovieTile/popularMoviesSlice";
 import { fetchGenres } from "../MovieTile/Genre/genreSlice";
 import { Main } from "../../../common/Main";
-import useQueryParameter, { searchQueryParamName } from "../../../useQueryParameter";
+import { searchQueryParamName } from "../../../useQueryParameter";
+import { useSearchParams } from "react-router-dom";
 
 const PopularMovies = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const stateOfLoading = useSelector(selectStatus);
-  const query = useQueryParameter(searchQueryParamName);
-  const [page, setPage] = useState(1);
   const totalPages = useSelector(selectTotalPages);
   const totalResults = useSelector(selectTotalResults);
+
+  const [searchParams] = useSearchParams({ page: 1 });
+  const page = Number(searchParams.get("page")) || 1;
+  const query = searchParams.get(searchQueryParamName) || null;
 
   useEffect(() => {
     dispatch(fetchMoviesLoading({ page, query }));
@@ -84,9 +87,9 @@ const PopularMovies = () => {
                 </section>
               </Container>
               <Pagination
+                location="movies"
                 totalPages={totalPages}
-                page={page}
-                setPage={setPage} />
+              />
             </>
           )}
         </Main>
