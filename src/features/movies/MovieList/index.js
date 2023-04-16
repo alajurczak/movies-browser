@@ -17,13 +17,13 @@ import {
 import { selectTotalPages } from "../../../features/movies/MovieTile/popularMoviesSlice";
 import { fetchGenres } from "../MovieTile/Genre/genreSlice";
 import { Main } from "../../../common/Main";
-import useQueryParameter from "../../../useQueryParameter";
+import useQueryParameter, { searchQueryParamName } from "../../../useQueryParameter";
 
 const PopularMovies = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const stateOfLoading = useSelector(selectStatus);
-  const query = useQueryParameter("search");
+  const query = useQueryParameter(searchQueryParamName);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectTotalPages);
   const totalResults = useSelector(selectTotalResults);
@@ -36,7 +36,7 @@ const PopularMovies = () => {
   return (
     <>
       {stateOfLoading === "loading" ? (
-        <Loading content="Loading..." />
+        <Loading />
       ) : stateOfLoading === "error" ? (
         <Error />
       ) : (

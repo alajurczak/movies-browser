@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { BigTile } from "../../../common/BigTile";
 import { SectionTitle } from "../../../common/SectionTitle";
@@ -16,6 +16,7 @@ import {
 import { fetchGenres } from "../../movies/MovieTile/Genre/genreSlice";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
+import { searchQueryParamName } from "../../../useQueryParameter";
 
 export const PersonPage = () => {
   const dispatch = useDispatch();
@@ -25,10 +26,17 @@ export const PersonPage = () => {
   const person = useSelector(selectPerson);
   const stateOfLoading = useSelector(selectPersonPageStatus);
 
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get(searchQueryParamName);
+
   useEffect(() => {
     dispatch(fetchPersonPageLoading(id));
     dispatch(fetchGenres());
-  }, [dispatch, id]);
+    if (query) {
+      navigate(`/people?${searchQueryParamName}=${query}`);
+    }
+  }, [dispatch, id, query, navigate]);
   return (
     <>
       {stateOfLoading === "loading" ? (

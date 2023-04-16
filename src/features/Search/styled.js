@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
+import { DebounceInput } from "react-debounce-input";
 const mobileBp = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const SearchBar = styled.div`
@@ -29,7 +30,7 @@ export const StyledSearchIcon = styled(SearchIcon)`
   }
 `;
 
-export const SearchBarInput = styled.input`
+export const SearchBarInput = styled(DebounceInput)`
   height: 44px;
   width: 100%;
   padding: 19px;

@@ -8,24 +8,28 @@ import {
   selectPopularPeople,
   selectPopularPeopleStatus,
   selectPopularPeopleTotalPages,
+  selectTotalPeopleResults,
 } from "../popularPeopleSlice";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
 import { GridList } from "../../../common/GridList";
 import { Main } from "../../../common/Main";
 import { Pagination } from "../../../common/Pagination";
+import { NoResult } from "../../../common/status/NoResult";
+import useQueryParameter, { searchQueryParamName } from "../../../useQueryParameter";
 
 const PopularPeople = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPopularPeople);
   const stateOfLoading = useSelector(selectPopularPeopleStatus);
-
+  const query = useQueryParameter(searchQueryParamName);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPopularPeopleTotalPages);
+  const totalResults = useSelector(selectTotalPeopleResults);
 
   useEffect(() => {
-    dispatch(fetchPeopleLoading({ page }));
-  }, [dispatch, page]);
+    dispatch(fetchPeopleLoading({ page,query }));
+  }, [dispatch, page, query]);
 
   return (
     <>
@@ -35,29 +39,38 @@ const PopularPeople = () => {
         <Error />
       ) : (
         <Main>
-          <Container>
-            <section>
-              <SectionTitle peopleList>Popular People</SectionTitle>
-              {people && people.length > 0 && (
-                <GridList popularPeople>
-                  {people.map(({ profile_path, id, name }) => (
-                    <li key={id}>
-                      <PersonTile
-                        id={id}
-                        profile_path={profile_path}
-                        name={name}
-                      />
-                    </li>
-                  ))}
-                </GridList>
-              )}
-            </section>
-          </Container>
-          <Pagination
-            page={page}
-            setPage={setPage}
-            totalPages={totalPages}
-          />
+          {!people.length ? (
+            <NoResult query={query} />
+          ) : (
+            <>
+              <Container>
+                <section>
+                  <SectionTitle peopleList>
+                    {query? `Search results for "${query}" (${totalResults})`
+                    : "People list"}
+                  </SectionTitle>
+                  {people && people.length > 0 && (
+                    <GridList popularPeople>
+                      {people.map(({ profile_path, id, name }) => (
+                        <li key={id}>
+                          <PersonTile
+                            id={id}
+                            profile_path={profile_path}
+                            name={name}
+                          />
+                        </li>
+                      ))}
+                    </GridList>
+                  )}
+                </section>
+              </Container>
+              <Pagination
+                page={page}
+                setPage={setPage}
+                totalPages={totalPages}
+              />
+            </>
+          )}
         </Main>
       )}
     </>
