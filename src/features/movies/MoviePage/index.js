@@ -13,6 +13,7 @@ import { Crew } from "./Crew";
 import { Main } from "../../../common/Main";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
+import { searchQueryParamName } from "../../../useQueryParameter";
 
 export const MoviePage = () => {
   const dispatch = useDispatch();
@@ -21,12 +22,12 @@ export const MoviePage = () => {
 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("search");
+  const query = searchParams.get(searchQueryParamName);
 
   useEffect(() => {
     dispatch(fetchMovieDetailsLoading(id));
     if (query) {
-      navigate(`/movies?${"search"}=${query}`);
+      navigate(`/movies?${searchQueryParamName}=${query}`);
     }
   }, [dispatch, id, query, navigate]);
 

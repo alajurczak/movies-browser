@@ -16,13 +16,13 @@ import { GridList } from "../../../common/GridList";
 import { Main } from "../../../common/Main";
 import { Pagination } from "../../../common/Pagination";
 import { NoResult } from "../../../common/status/NoResult";
-import useQueryParameter from "../../../useQueryParameter";
+import useQueryParameter, { searchQueryParamName } from "../../../useQueryParameter";
 
 const PopularPeople = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPopularPeople);
   const stateOfLoading = useSelector(selectPopularPeopleStatus);
-  const query = useQueryParameter("search");
+  const query = useQueryParameter(searchQueryParamName);
   const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPopularPeopleTotalPages);
   const totalResults = useSelector(selectTotalPeopleResults);
@@ -34,7 +34,7 @@ const PopularPeople = () => {
   return (
     <>
       {stateOfLoading === "loading" ? (
-        <Loading content="Loading..." />
+        <Loading />
       ) : stateOfLoading === "error" ? (
         <Error />
       ) : (

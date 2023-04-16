@@ -16,6 +16,7 @@ import {
 import { fetchGenres } from "../../movies/MovieTile/Genre/genreSlice";
 import { Loading } from "../../../common/status/Loading";
 import { Error } from "../../../common/status/Error";
+import { searchQueryParamName } from "../../../useQueryParameter";
 
 export const PersonPage = () => {
   const dispatch = useDispatch();
@@ -27,13 +28,13 @@ export const PersonPage = () => {
 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("search");
+  const query = searchParams.get(searchQueryParamName);
 
   useEffect(() => {
     dispatch(fetchPersonPageLoading(id));
     dispatch(fetchGenres());
     if (query) {
-      navigate(`/people?${"search"}=${query}`);
+      navigate(`/people?${searchQueryParamName}=${query}`);
     }
   }, [dispatch, id, query, navigate]);
   return (
