@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Container } from "../../../common/Container";
 import { SectionTitle } from "../../../common/SectionTitle";
 import { PersonTile } from "../PersonTile";
@@ -16,19 +16,22 @@ import { GridList } from "../../../common/GridList";
 import { Main } from "../../../common/Main";
 import { Pagination } from "../../../common/Pagination";
 import { NoResult } from "../../../common/status/NoResult";
-import useQueryParameter, { searchQueryParamName } from "../../../useQueryParameter";
+import { searchQueryParamName } from "../../../useQueryParameter";
+import { useSearchParams } from "react-router-dom";
 
 const PopularPeople = () => {
   const dispatch = useDispatch();
   const people = useSelector(selectPopularPeople);
   const stateOfLoading = useSelector(selectPopularPeopleStatus);
-  const query = useQueryParameter(searchQueryParamName);
-  const [page, setPage] = useState(1);
   const totalPages = useSelector(selectPopularPeopleTotalPages);
   const totalResults = useSelector(selectTotalPeopleResults);
 
+  const [searchParams] = useSearchParams({ page: 1 });
+  const page = Number(searchParams.get("page")) || 1;
+  const query = searchParams.get(searchQueryParamName) || null;
+
   useEffect(() => {
-    dispatch(fetchPeopleLoading({ page,query }));
+    dispatch(fetchPeopleLoading({ page, query }));
   }, [dispatch, page, query]);
 
   return (
@@ -46,8 +49,8 @@ const PopularPeople = () => {
               <Container>
                 <section>
                   <SectionTitle peopleList>
-                    {query? `Search results for "${query}" (${totalResults})`
-                    : "People list"}
+                    {query ? `Search results for "${query}" (${totalResults})`
+                      : "People list"}
                   </SectionTitle>
                   {people && people.length > 0 && (
                     <GridList popularPeople>
@@ -65,8 +68,7 @@ const PopularPeople = () => {
                 </section>
               </Container>
               <Pagination
-                page={page}
-                setPage={setPage}
+                location="people"
                 totalPages={totalPages}
               />
             </>
