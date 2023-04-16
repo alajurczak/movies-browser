@@ -5,4 +5,5 @@ const useQueryParameter = (paramName) => {
     return new URLSearchParams(location.search).get(paramName);
 };
 
+export const searchQueryParamName = "search";
 export default useQueryParameter;
