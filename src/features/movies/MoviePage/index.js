@@ -25,13 +25,10 @@ export const MoviePage = () => {
 
   useEffect(() => {
     dispatch(fetchMovieDetailsLoading(id));
-  }, [dispatch, id]);
-
-  useEffect(() => {
     if (query) {
       navigate(`/movies?${"search"}=${query}`);
     }
-  }, [query, navigate]);
+  }, [dispatch, id, query, navigate]);
 
   return (
     <>
