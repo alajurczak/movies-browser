@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { Container } from "../../../common/Container";
 import {
   selectMovieDetailsAndCreditsStatus,
@@ -19,9 +19,19 @@ export const MoviePage = () => {
   const { id } = useParams();
   const stateOfLoading = useSelector(selectMovieDetailsAndCreditsStatus);
 
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("search");
+
   useEffect(() => {
     dispatch(fetchMovieDetailsLoading(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if (query) {
+      navigate(`/movies?${"search"}=${query}`);
+    }
+  }, [query, navigate]);
 
   return (
     <>
