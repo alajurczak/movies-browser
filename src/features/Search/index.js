@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { fetchSearch } from "./searchSlice";
 import useQueryParameter from "../../useQueryParameter";
 import { useReplaceQueryParameter } from "../../useReplaceQueryParameter";
+import { useLocation } from "react-router-dom";
 
 export const Search = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
 
     const query = useQueryParameter("search");
     const replaceQueryParam = useReplaceQueryParameter();
@@ -29,7 +31,10 @@ export const Search = () => {
                 <StyledSearchIcon />
             </SearchBarIcon>
             <SearchBarInput
-                placeholder="Search for movies/people..."
+                placeholder=
+                {location.pathname.includes("people")
+                    ? "Search for people..."
+                    : "Search for movies..."}
                 value={query || ""}
                 onChange={onInputChange}
             />
