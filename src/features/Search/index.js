@@ -10,8 +10,6 @@ export const Search = () => {
     const query = useQueryParameter("search");
     const replaceQueryParam = useReplaceQueryParameter();
 
-    console.log(query);
-
     const onInputChange = ({ target }) => {
         replaceQueryParam({
             key: "search",
