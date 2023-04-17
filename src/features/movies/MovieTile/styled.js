@@ -43,37 +43,43 @@ export const ImageWrapper = styled.img`
 export const RatingWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  padding: 0, 8px;
+  margin: 0 0 0 10px;
 `;
 
 export const Star = styled(StarIcon)`
   width: 24px;
-  height: auto;
+  height: 21px;
 
   @media (max-width: ${mobileMaxBp}px) {
-    width: 20px;
+    width: 16px;
+    height: 16px;
   }
 `;
 
 export const Rate = styled.span`
   color: ${({ theme }) => theme.colors.smoke};
-  margin: 0 12px;
   font-size: 16px;
+  line-height: 150%;
   font-weight: 600;
+  margin: 0 0 0 10px;
 
   @media (max-width: ${mobileMaxBp}px) {
     font-size: 13px;
-    margin: 0 12px 0 10px;
+    line-height: 130%;
+    margin: 0 0 0 10px;
   }
 `;
 
 export const Votes = styled.span`
   color: ${({ theme }) => theme.colors.waterloo};
-  font-size: 14px;
-  font-weight: 400;
-
+  font-size: 16px;
+  line-height: 150%;
+  margin: 0 0 0 10px;
   @media (max-width: ${mobileMaxBp}px) {
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 130%;
+    margin: 0 0 0 10px;
   }
 `;
 
@@ -109,7 +115,7 @@ export const Subtitle = styled.p`
   font-size: 18px;
   margin: 0;
   color: ${({ theme }) => theme.colors.waterloo};
-  
+
   @media (max-width: ${mobileMaxBp}px) {
     margin: 0 0 0 8px;
     font-size: 12px;

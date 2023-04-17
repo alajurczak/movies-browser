@@ -67,6 +67,7 @@ export const ReleaseYear = styled.span`
 
   @media (max-width: ${mobileMaxBp}px) {
     font-size: 13px;
+    line-height: 120%;
     color: ${({ theme }) => theme.colors.stormGrey};
   }
 `;
@@ -137,7 +138,7 @@ export const Description = styled.p`
   grid-column-start: 2;
   grid-row-start: 2;
   grid-area: d;
-  
+
   @media (max-width: ${mobileMaxBp}px) {
     font-size: 14px;
   }
