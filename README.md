@@ -12,6 +12,7 @@ The main page displays a list of the most popular movies in the form of tiles wi
 
 The second tab is dedicated to the most popular actors. A list of actors by name is displayed in tile form. When you click on the selected tile, you will be taken to a page with details about the selected person, where you will see a list of films in which the actor played. 
 
+
 ![People Browser](public/gif/peoplePage.gif)
 
 ## Group project created by:
