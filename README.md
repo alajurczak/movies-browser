@@ -1,7 +1,7 @@
 # Group project - Movies Browser
 ![Screenshot](public/Logo.png)
 
-## Check the lastest version here: [Movies Browser](https://allmosthumann.github.io/movie-browser/)
+## Check the lastest version here: [Movies Browser](https://alajurczak.github.io/movies-browser/)
 
 ## Introduction
  
